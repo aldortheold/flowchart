@@ -10,7 +10,7 @@ function App() {
                 <Route path="/editor" element={<Editor />} />
             </Routes>
         </BrowserRouter>
-    )
+    );
 }
 
 export default App

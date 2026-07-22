@@ -1,0 +1,92 @@
+import { useId } from "react";
+
+function Daisy() {
+
+    const outerPetalAId = useId();
+    const outerPetalBId = useId();
+    const innerPetalId = useId();
+
+    return (
+        <>
+            <defs>
+                <path id={outerPetalAId} d="M256 223 C232 188 234 112 258 53 C284 111 281 187 256 223 Z"/>
+                <path id={outerPetalBId} d="M256 223 C239 181 242 118 266 67 C282 129 276 190 256 223 Z"/>
+                <path id={innerPetalId} d="M256 238 C240 207 242 159 259 116 C277 163 274 209 256 238 Z"/>
+            </defs>
+            <g>
+                <g>
+                    <g fill="#fff9e8">
+                        <use href={`#${outerPetalAId}`} transform="rotate(0 256 256)"/>
+                        <use href={`#${outerPetalAId}`} transform="rotate(45 256 256)"/>
+                        <use href={`#${outerPetalAId}`} transform="rotate(90 256 256)"/>
+                        <use href={`#${outerPetalAId}`} transform="rotate(135 256 256)"/>
+                        <use href={`#${outerPetalAId}`} transform="rotate(180 256 256)"/>
+                        <use href={`#${outerPetalAId}`} transform="rotate(225 256 256)"/>
+                        <use href={`#${outerPetalAId}`} transform="rotate(270 256 256)"/>
+                        <use href={`#${outerPetalAId}`} transform="rotate(315 256 256)"/>
+                    </g>
+                    <g fill="#e4e9dc">
+                        <use href={`#${outerPetalBId}`} transform="rotate(22 256 256)"/>
+                        <use href={`#${outerPetalBId}`} transform="rotate(67 256 256)"/>
+                        <use href={`#${outerPetalBId}`} transform="rotate(112 256 256)"/>
+                        <use href={`#${outerPetalBId}`} transform="rotate(157 256 256)"/>
+                        <use href={`#${outerPetalBId}`} transform="rotate(202 256 256)"/>
+                        <use href={`#${outerPetalBId}`} transform="rotate(247 256 256)"/>
+                        <use href={`#${outerPetalBId}`} transform="rotate(292 256 256)"/>
+                        <use href={`#${outerPetalBId}`} transform="rotate(337 256 256)"/>
+                    </g>
+                </g>
+                <g fill="#d2ddd4">
+                    <use href={`#${innerPetalId}`} transform="rotate(11 256 256)"/>
+                    <use href={`#${innerPetalId}`} transform="rotate(41 256 256)"/>
+                    <use href={`#${innerPetalId}`} transform="rotate(71 256 256)"/>
+                    <use href={`#${innerPetalId}`} transform="rotate(101 256 256)"/>
+                    <use href={`#${innerPetalId}`} transform="rotate(131 256 256)"/>
+                    <use href={`#${innerPetalId}`} transform="rotate(161 256 256)"/>
+                    <use href={`#${innerPetalId}`} transform="rotate(191 256 256)"/>
+                    <use href={`#${innerPetalId}`} transform="rotate(221 256 256)"/>
+                    <use href={`#${innerPetalId}`} transform="rotate(251 256 256)"/>
+                    <use href={`#${innerPetalId}`} transform="rotate(281 256 256)"/>
+                    <use href={`#${innerPetalId}`} transform="rotate(311 256 256)"/>
+                    <use href={`#${innerPetalId}`} transform="rotate(341 256 256)"/>
+                </g>
+                <g>
+                    <circle cx="256" cy="256" r="82" fill="#bd7428"/>
+                    <circle cx="256" cy="250" r="73" fill="#dfa02d"/>
+                    <circle cx="246" cy="237" r="55" fill="#edb83d"/>
+                    <circle cx="231" cy="217" r="23" fill="#f8d15a"/>
+                    <g fill="#ffd967">
+                        <circle cx="226" cy="237" r="7"/>
+                        <circle cx="248" cy="224" r="6"/>
+                        <circle cx="271" cy="226" r="7"/>
+                        <circle cx="291" cy="239" r="6"/>
+                        <circle cx="214" cy="258" r="6"/>
+                        <circle cx="238" cy="250" r="7"/>
+                        <circle cx="262" cy="249" r="6"/>
+                        <circle cx="284" cy="260" r="7"/>
+                        <circle cx="300" cy="277" r="5"/>
+                        <circle cx="220" cy="281" r="6"/>
+                        <circle cx="244" cy="274" r="6"/>
+                        <circle cx="267" cy="275" r="7"/>
+                        <circle cx="286" cy="288" r="6"/>
+                        <circle cx="236" cy="297" r="6"/>
+                        <circle cx="260" cy="296" r="7"/>
+                    </g>
+                    <g fill="#fff0a1">
+                        <circle cx="224" cy="235" r="2.5"/>
+                        <circle cx="247" cy="222" r="2"/>
+                        <circle cx="269" cy="224" r="2.5"/>
+                        <circle cx="236" cy="248" r="2.5"/>
+                        <circle cx="260" cy="247" r="2"/>
+                        <circle cx="282" cy="258" r="2.5"/>
+                        <circle cx="242" cy="272" r="2"/>
+                        <circle cx="265" cy="273" r="2.5"/>
+                        <circle cx="258" cy="294" r="2"/>
+                    </g>
+                </g>
+            </g>
+        </>
+    );
+}
+
+export default Daisy;

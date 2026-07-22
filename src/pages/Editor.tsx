@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, type ComponentType } from "react"
 import { motion } from "framer-motion"
 import * as botanical from "../assets/botanical"
 import * as minimal from "../assets/minimal"
@@ -7,6 +7,8 @@ import "./Editor.css"
 function Editor() {
 
     const [bg, setBg] = useState("#f3f3f3");
+
+    const [flowers, setFlowers] = useState<ComponentType[]>([]);
 
     return (
         <motion.main
@@ -24,13 +26,12 @@ function Editor() {
                     width="100%"
                     height="100%"
                 >
-                    <rect
-                        x="0"
-                        y="0"
-                        width="1600"
-                        height="900"
-                        fill={bg}
-                    />
+                    <rect x="0" y="0" width="1600" height="900" fill={bg} />
+                    {flowers.map((Flower, index) => (
+                        <g key={index} transform={`translate(${index * 100} ${index * 100}) scale(0.5)`}>
+                            <Flower />
+                        </g>
+                    ))}
                 </svg>
             </div>
             <div className="sidebar">
@@ -53,19 +54,19 @@ function Editor() {
                     <hr />
                     <h3>Botanical</h3>
                     <div className="flower-menu">
-                    {Object.keys(botanical).map((key) =>
-                        <button key={key}>
-                            <img src={botanical[key as keyof typeof botanical]} />
+                    {Object.entries(botanical).map(([key, Flower]) => (
+                        <button key={key} onClick={() => setFlowers((flowers) => [...flowers, Flower])}>
+                            <svg viewBox="0 0 512 512" aria-label={key}><Flower /></svg>
                         </button>
-                    )}
+                    ))}
                     </div>
                     <h3>Minimal</h3>
                     <div className="flower-menu">
-                    {Object.keys(minimal).map((key) =>
-                        <button key={key}>
-                            <img src={minimal[key as keyof typeof minimal]} />
+                    {Object.entries(minimal).map(([key, Flower]) => (
+                        <button key={key} onClick={() => setFlowers((flowers) => [...flowers, Flower])}>
+                            <svg viewBox="0 0 512 512" aria-label={key}><Flower /></svg>
                         </button>
-                    )}
+                    ))}
                     </div>
                 </section>
             </div>

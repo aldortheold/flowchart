@@ -1,3 +1,3 @@
-export { default as rose } from "./rose.svg";
-export { default as tulip } from "./tulip.svg";
-export { default as daisy } from "./daisy.svg";
+export { default as Rose } from "./Rose";
+export { default as Tulip } from "./Tulip";
+export { default as Daisy } from "./Daisy";
