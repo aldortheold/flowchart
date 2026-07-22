@@ -1,0 +1,49 @@
+.editor {
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+.canvas {
+    height: calc(100vh - 40px);
+    background-color: #222222;
+    padding: 20px 50px;
+}
+
+.sidebar {
+    padding: 20px 30px;
+}
+
+.canvas-editor .field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.canvas-editor .field label {
+    font-size: 1.1rem;
+}
+
+.flower-menu {
+    display: flex;
+    gap: 15px;
+}
+
+.flower-menu button {
+    height: 75px;
+    width: 75px;
+    background-color: #222222;
+    border: #808080 2px solid;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.flower-menu button:hover {
+    background-color: #333333;
+}
+
+.flower-menu button img {
+    height: 100%;
+    width: 100%;
+}

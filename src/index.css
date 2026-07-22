@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Commissioner&display=swap');
 
 #root, html, body {
     margin: 0;
@@ -7,5 +7,16 @@
 body {
     background-color: #111111;
     color: #f3f3f3;
-    font-family: "Arimo", sans-serif;
+    font-family: Commissioner, sans-serif;
+}
+
+hr {
+    border-color: #f3f3f3;
+}
+
+input[type="color"] {
+    width: 80px;
+    height: 40px;
+    background: none;
+    cursor: pointer;
 }
