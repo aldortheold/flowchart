@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     data-asset-version="4"
+     viewBox="0 0 512 512"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">Minimal tulip</title>
+  <desc id="desc">A directly overhead flat-color tulip made from six pointed petals and a simple center.</desc>
+
+  <defs>
+    <path id="petal"
+          d="M256 278 C213 225 216 125 256 60 C296 125 299 225 256 278 Z"/>
+  </defs>
+
+  <g id="bloom">
+    <use href="#petal" fill="#ff7d76" transform="rotate(0 256 256)"/>
+    <use href="#petal" fill="#e94d61" transform="rotate(60 256 256)"/>
+    <use href="#petal" fill="#d43757" transform="rotate(120 256 256)"/>
+    <use href="#petal" fill="#c92f51" transform="rotate(180 256 256)"/>
+    <use href="#petal" fill="#e7475d" transform="rotate(240 256 256)"/>
+    <use href="#petal" fill="#f26269" transform="rotate(300 256 256)"/>
+    <circle cx="256" cy="256" r="59" fill="#9f2748"/>
+    <circle cx="256" cy="256" r="26" fill="#f5b949"/>
+  </g>
+</svg>
