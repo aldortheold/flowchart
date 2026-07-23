@@ -4,11 +4,22 @@ import * as botanical from "../assets/botanical"
 import * as minimal from "../assets/minimal"
 import "./Editor.css"
 
+interface Flower {
+    id: string;
+    Component: ComponentType;
+    x: number;
+    y: number;
+    scale: number;
+    rotation: number;
+};
+
 function Editor() {
 
-    const [bg, setBg] = useState("#f3f3f3");
+    const [bg, setBg] = useState("#ffffff");
+    const [width, setWidth] = useState(1600);
+    const [height, setHeight] = useState(900);
 
-    const [flowers, setFlowers] = useState<ComponentType[]>([]);
+    const [flowers, setFlowers] = useState<Flower[]>([]);
 
     return (
         <motion.main
@@ -21,16 +32,19 @@ function Editor() {
             <div className="canvas">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 1600 900"
+                    viewBox={`0 0 ${width} ${height}`}
                     preserveAspectRatio="xMidYMid meet"
                     width="100%"
                     height="100%"
                 >
-                    <rect x="0" y="0" width="1600" height="900" fill={bg} />
-                    {flowers.map((Flower, index) => (
-                        <g key={index} transform={`translate(${index * 100} ${index * 100}) scale(0.5)`}>
-                            <Flower />
-                        </g>
+                    <rect x="0" y="0" width={width} height={height} fill={bg} />
+                    {flowers.map((flower) => (
+                    <g
+                        key={flower.id}
+                        transform={`translate(${flower.x} ${flower.y}) rotate(${flower.rotation}) scale(${flower.scale})`}
+                    >
+                        <flower.Component />
+                    </g>
                     ))}
                 </svg>
             </div>
@@ -54,17 +68,31 @@ function Editor() {
                     <hr />
                     <h3>Botanical</h3>
                     <div className="flower-menu">
-                    {Object.entries(botanical).map(([key, Flower]) => (
-                        <button key={key} onClick={() => setFlowers((flowers) => [...flowers, Flower])}>
-                            <svg viewBox="0 0 512 512" aria-label={key}><Flower /></svg>
+                    {Object.entries(botanical).map(([key, FlowerComponent]) => (
+                        <button key={key} onClick={() => setFlowers((flowers) => [...flowers, {
+                            id: crypto.randomUUID(),
+                            Component: FlowerComponent,
+                            x: 0,
+                            y: 0,
+                            scale: 1,
+                            rotation: 0,
+                        }])}>
+                            <svg viewBox="0 0 512 512" aria-label={key}><FlowerComponent /></svg>
                         </button>
                     ))}
                     </div>
                     <h3>Minimal</h3>
                     <div className="flower-menu">
-                    {Object.entries(minimal).map(([key, Flower]) => (
-                        <button key={key} onClick={() => setFlowers((flowers) => [...flowers, Flower])}>
-                            <svg viewBox="0 0 512 512" aria-label={key}><Flower /></svg>
+                    {Object.entries(minimal).map(([key, FlowerComponent]) => (
+                        <button key={key} onClick={() => setFlowers((flowers) => [...flowers, {
+                            id: crypto.randomUUID(),
+                            Component: FlowerComponent,
+                            x: 0,
+                            y: 0,
+                            scale: 1,
+                            rotation: 0,
+                        }])}>
+                            <svg viewBox="0 0 512 512" aria-label={key}><FlowerComponent /></svg>
                         </button>
                     ))}
                     </div>
