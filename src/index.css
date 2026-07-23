@@ -14,9 +14,29 @@ hr {
     border-color: #f3f3f3;
 }
 
+button, select {
+    font-family: Commissioner, sans-serif;
+    font-size: 1.2rem;
+    color: #f3f3f3;
+    background-color: #222222;
+    border: #808080 2px solid;
+    border-radius: 10px;
+    padding: 7px 25px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+button:hover, select:hover {
+    background-color: #333333;
+}
+
 input[type="color"] {
     width: 80px;
     height: 40px;
     background: none;
     cursor: pointer;
+}
+
+input[type="range"] {
+    accent-color: #e6405c;
 }

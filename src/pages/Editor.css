@@ -9,18 +9,24 @@
     padding: 20px 50px;
 }
 
+.canvas svg g:hover {
+    cursor: pointer;
+}
+
 .sidebar {
     padding: 20px 30px;
 }
 
-.canvas-editor .field {
+.canvas-editor .field,
+.flower-editor .field {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 15px 0;
 }
 
-.canvas-editor .field label {
+.canvas-editor .field label,
+.flower-editor .field label {
     font-size: 1.1rem;
 }
 
@@ -37,6 +43,22 @@
     cursor: pointer;
 }
 
+.flower-editor {
+    text-align: center;
+}
+
+.flower-editor button {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin: 15px auto 20px;
+}
+
+.flower-editor button svg {
+    fill: #f3f3f3;
+    height: 26px;
+}
+
 .flower-menu {
     display: flex;
     gap: 15px;
@@ -48,6 +70,7 @@
     background-color: #222222;
     border: #808080 2px solid;
     border-radius: 10px;
+    padding: 0;
     transition: all 0.2s ease;
     cursor: pointer;
 }
