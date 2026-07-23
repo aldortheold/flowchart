@@ -61,6 +61,22 @@ function Editor() {
                             onChange={(e) => setBg(e.target.value)}
                         />
                     </div>
+                    <div className="field">
+                        <label htmlFor="aspect-ratio">Aspect ratio</label>
+                        <select
+                            id="aspect-ratio"
+                            value={`${width/100}:${height/100}`}
+                            onChange={(e) => {
+                                let sides = e.target.value.split(":").map(Number);
+                                setWidth(sides[0] * 100);
+                                setHeight(sides[1] * 100);
+                            }}
+                        >
+                            <option value="16:9">16:9</option>
+                            <option value="10:10">1:1</option>
+                            <option value="9:16">9:16</option>
+                        </select>
+                    </div>
                     <hr />
                 </section>
                 <section className="flowers-editor">

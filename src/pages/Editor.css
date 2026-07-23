@@ -24,6 +24,19 @@
     font-size: 1.1rem;
 }
 
+.canvas-editor .field select {
+    font-family: Commissioner, sans-serif;
+    width: 75px;
+    font-size: 1.2rem;
+    color: #f3f3f3;
+    background-color: #222222;
+    border: #808080 2px solid;
+    border-radius: 10px;
+    padding: 5px 10px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
 .flower-menu {
     display: flex;
     gap: 15px;
@@ -39,7 +52,8 @@
     cursor: pointer;
 }
 
-.flower-menu button:hover {
+.flower-menu button:hover,
+.canvas-editor .field select:hover {
     background-color: #333333;
 }
 
