@@ -1,4 +1,13 @@
 import { useId } from "react";
+import { scaleFlower } from "../scaleFlower";
+
+// Includes the outer petals' four-unit stroke.
+const NEW_VIEWBOX = scaleFlower([
+    77.330817628,
+    50,
+    434.669182372,
+    462,
+]);
 
 function Tulip() {
 
@@ -13,7 +22,7 @@ function Tulip() {
                 <path id={innerPetalId} d="M256 276 C227 238 230 166 256 111 C284 166 283 238 256 276 Z"/>
                 <path id={petalRibId} d="M256 244 C248 188 251 116 256 70"/>
             </defs>
-            <g>
+            <g transform={NEW_VIEWBOX}>
                 <g stroke="#a82d4c" strokeWidth="4" strokeLinejoin="round">
                     <use href={`#${outerPetalId}`} fill="#ef5a67" transform="rotate(0 256 256)"/>
                     <use href={`#${outerPetalId}`} fill="#cf3858" transform="rotate(60 256 256)"/>

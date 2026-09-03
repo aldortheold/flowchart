@@ -1,6 +1,16 @@
+import { scaleFlower } from "../scaleFlower";
+
+// Includes the outer contour's three-unit stroke.
+const NEW_VIEWBOX = scaleFlower([
+    60.501900396,
+    64.994886128,
+    465.419464842,
+    433.386756342,
+]);
+
 function Rose() {
     return (
-        <g>
+        <g transform={NEW_VIEWBOX}>
             <g stroke="#9b2744" strokeWidth="3" strokeLinejoin="round">
                 <path fill="#d73c57" d="M256 411 C221 446 169 435 156 393 C113 399 82 365 95 325 C55 306 51 260 85 235 C59 199 80 156 122 150 C122 107 163 81 201 99 C222 61 271 55 300 88 C336 61 383 79 391 121 C434 121 460 161 442 199 C476 226 469 273 431 293 C443 335 408 370 366 361 C359 405 311 426 277 397 Z"/>
                 <path fill="#ef5369" d="M256 107 C224 73 180 83 168 121 C157 159 184 198 231 218 C219 166 228 128 256 107 Z"/>

@@ -1,4 +1,7 @@
 import { useId } from "react";
+import { scaleFlower } from "../scaleFlower";
+
+const NEW_VIEWBOX = scaleFlower([72, 72, 440, 440]);
 
 function Daisy() {
 
@@ -9,7 +12,7 @@ function Daisy() {
             <defs>
                 <path id={petalId} d="M256 229 C224 192 226 120 256 72 C286 120 288 192 256 229 Z" />
             </defs>
-            <g>
+            <g transform={NEW_VIEWBOX}>
                 <use href={`#${petalId}`} fill="#fff3cf" transform="rotate(0 256 256)" />
                 <use href={`#${petalId}`} fill="#fff3cf" transform="rotate(45 256 256)" />
                 <use href={`#${petalId}`} fill="#fff3cf" transform="rotate(90 256 256)" />

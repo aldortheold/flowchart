@@ -1,4 +1,12 @@
 import { useId } from "react";
+import { scaleFlower } from "../scaleFlower";
+
+const NEW_VIEWBOX = scaleFlower([
+    86.259020858,
+    60,
+    425.740979142,
+    452,
+]);
 
 function Tulip() {
 
@@ -9,7 +17,7 @@ function Tulip() {
             <defs>
                 <path id={petalId} d="M256 278 C213 225 216 125 256 60 C296 125 299 225 256 278 Z" />
             </defs>
-            <g>
+            <g transform={NEW_VIEWBOX}>
                 <use href={`#${petalId}`} fill="#ff7d76" transform="rotate(0 256 256)" />
                 <use href={`#${petalId}`} fill="#e94d61" transform="rotate(60 256 256)" />
                 <use href={`#${petalId}`} fill="#d43757" transform="rotate(120 256 256)" />
