@@ -1,22 +1,311 @@
-@import url('https://fonts.googleapis.com/css2?family=Commissioner&display=swap');
+:root {
+  color-scheme: light;
+  font-family: "Aptos", "Segoe UI Variable", "Segoe UI", Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-#root, html, body {
-    margin: 0;
+  --font-sans: "Aptos", "Segoe UI Variable", "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-display: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+
+  --bg: #f6f5ef;
+  --bg-2: #eeece4;
+  --surface: #fffefa;
+  --surface-2: #f1efe8;
+  --surface-3: #e8e6dd;
+  --text: #1e2c26;
+  --text-2: #57645e;
+  --text-3: #78827d;
+  --line: #d9d8d0;
+  --line-strong: #bdbfb6;
+  --accent: #ce4f6d;
+  --accent-hover: #b93e5d;
+  --accent-soft: #f8e2e8;
+  --accent-text: #ffffff;
+  --brand: var(--accent);
+  --success: #2f7a53;
+  --success-soft: #dceee3;
+  --warn: #94651d;
+  --warn-soft: #faedce;
+  --danger: #b64242;
+  --danger-soft: #f7dfdc;
+  --focus: #267c9a;
+  --overlay: rgb(19 28 24 / 0.5);
+
+  --shadow-sm: 0 1px 2px rgb(24 34 29 / 0.08), 0 4px 14px rgb(24 34 29 / 0.05);
+  --shadow-md: 0 12px 35px rgb(24 34 29 / 0.12);
+  --shadow-lg: 0 24px 70px rgb(24 34 29 / 0.18);
+
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.25rem;
+  --sp-6: 1.5rem;
+  --sp-8: 2rem;
+  --sp-10: 2.5rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --fast: 140ms;
+  --normal: 240ms;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #111713;
+  --bg-2: #0b100d;
+  --surface: #19211c;
+  --surface-2: #222b25;
+  --surface-3: #2b352e;
+  --text: #f5f2e9;
+  --text-2: #bcc6bf;
+  --text-3: #909c94;
+  --line: #334039;
+  --line-strong: #4b5a52;
+  --accent: #ed7187;
+  --accent-hover: #f28aa0;
+  --accent-soft: #422631;
+  --accent-text: #291017;
+  --success: #79c797;
+  --success-soft: #173527;
+  --warn: #e7bc69;
+  --warn-soft: #3b301d;
+  --danger: #ee8580;
+  --danger-soft: #402421;
+  --focus: #78c7dd;
+  --overlay: rgb(2 8 5 / 0.72);
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.25), 0 5px 18px rgb(0 0 0 / 0.18);
+  --shadow-md: 0 14px 40px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 28px 80px rgb(0 0 0 / 0.42);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--bg);
+  scroll-behavior: smooth;
 }
 
 body {
-    background-color: #111111;
-    color: #f3f3f3;
-    font-family: Commissioner, sans-serif;
+  min-width: 320px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  transition: background-color var(--normal) var(--ease), color var(--normal) var(--ease);
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+  isolation: isolate;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-block-start: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+}
+
+button,
+select,
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"],
+input[type="color"] {
+  cursor: pointer;
+}
+
+button {
+  touch-action: manipulation;
+}
+
+input,
+textarea,
+select {
+  accent-color: var(--accent);
+}
+
+a {
+  color: inherit;
+}
+
+img,
+picture,
+svg,
+canvas {
+  display: block;
+  max-width: 100%;
 }
 
 hr {
-    border-color: #f3f3f3;
+  border: 0;
+  border-top: 1px solid var(--line);
 }
 
-input[type="color"] {
-    width: 80px;
-    height: 40px;
-    background: none;
-    cursor: pointer;
+dialog {
+  color: var(--text);
+}
+
+dialog::backdrop {
+  background: var(--overlay);
+  backdrop-filter: blur(4px);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.icon {
+  display: inline-block;
+  flex: none;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.62rem;
+  min-width: 0;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.brand-mark {
+  width: 2rem;
+  height: 2rem;
+  flex: none;
+  overflow: visible;
+}
+
+.brand-word {
+  font-size: 1.08rem;
+  font-weight: 760;
+  letter-spacing: -0.035em;
+}
+
+.icon-btn,
+.theme-toggle {
+  display: inline-grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: none;
+  place-items: center;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--text-2);
+  transition:
+    color var(--fast) ease,
+    border-color var(--fast) ease,
+    background-color var(--fast) ease,
+    transform var(--fast) ease;
+}
+
+.theme-toggle .icon {
+  width: 1.18rem;
+  height: 1.18rem;
+}
+
+@media (hover: hover) {
+  .icon-btn:hover,
+  .theme-toggle:hover {
+    border-color: var(--line);
+    background: var(--surface-2);
+    color: var(--text);
+  }
+}
+
+.icon-btn:active,
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+* {
+  scrollbar-color: var(--line-strong) transparent;
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: var(--r-pill);
+  background: var(--line-strong);
+  background-clip: padding-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -1,12 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="15" fill="#F7F7F2"/>
-  <g transform="matrix(1.279566733531431 0 0 1.3327623589476685 32 34.65182133263938)">
-    <ellipse cx="0" cy="-13" rx="8" ry="13" fill="#EF7F87"/>
-    <ellipse cx="12.4" cy="-4" rx="8" ry="13" transform="rotate(72 12.4 -4)" fill="#F09A78"/>
-    <ellipse cx="7.7" cy="10.5" rx="8" ry="13" transform="rotate(144 7.7 10.5)" fill="#E9B85B"/>
-    <ellipse cx="-7.7" cy="10.5" rx="8" ry="13" transform="rotate(216 -7.7 10.5)" fill="#83B98B"/>
-    <ellipse cx="-12.4" cy="-4" rx="8" ry="13" transform="rotate(288 -12.4 -4)" fill="#78AFC3"/>
-    <circle r="8.5" fill="#F7F7F2"/>
-    <circle r="5" fill="#26352F"/>
+  <style>
+    .tile { fill: #fbfaf5; }
+    @media (prefers-color-scheme: dark) { .tile { fill: #17201a; } }
+  </style>
+  <rect class="tile" width="64" height="64" rx="15"/>
+  <g transform="translate(8 8)">
+    <path d="M24 3.5c5.8 4.8 7.3 12 0 19-7.3-7-5.8-14.2 0-19Z" fill="#ed7187"/>
+    <path d="M24 3.5c5.8 4.8 7.3 12 0 19-7.3-7-5.8-14.2 0-19Z" fill="#ef956f" transform="rotate(60 24 24)"/>
+    <path d="M24 3.5c5.8 4.8 7.3 12 0 19-7.3-7-5.8-14.2 0-19Z" fill="#e9b951" transform="rotate(120 24 24)"/>
+    <path d="M24 3.5c5.8 4.8 7.3 12 0 19-7.3-7-5.8-14.2 0-19Z" fill="#78b486" transform="rotate(180 24 24)"/>
+    <path d="M24 3.5c5.8 4.8 7.3 12 0 19-7.3-7-5.8-14.2 0-19Z" fill="#6da8bb" transform="rotate(240 24 24)"/>
+    <path d="M24 3.5c5.8 4.8 7.3 12 0 19-7.3-7-5.8-14.2 0-19Z" fill="#9c8bc4" transform="rotate(300 24 24)"/>
+    <circle cx="24" cy="24" r="8.4" fill="#fbfaf5"/>
+    <circle cx="24" cy="24" r="4.2" fill="#26372f"/>
   </g>
 </svg>

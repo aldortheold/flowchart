@@ -4,6 +4,31 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/flower-icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Create and export flower-based wallpapers and decorative backgrounds." />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f6f5ef" />
+    <script>
+      (() => {
+        const key = "flowchart-theme"
+        let mode = "system"
+
+        try {
+          const saved = localStorage.getItem(key)
+          if (saved === "light" || saved === "dark" || saved === "system") mode = saved
+        } catch {
+          // Continue with the operating-system preference when storage is unavailable.
+        }
+
+        const dark = matchMedia("(prefers-color-scheme: dark)").matches
+        const theme = mode === "system" ? (dark ? "dark" : "light") : mode
+        const root = document.documentElement
+        root.dataset.theme = theme
+        root.dataset.themeMode = mode
+        root.style.colorScheme = theme
+        document.querySelector('meta[name="theme-color"]').content =
+          theme === "dark" ? "#111713" : "#f6f5ef"
+      })()
+    </script>
     <title>Flowchart</title>
   </head>
   <body>

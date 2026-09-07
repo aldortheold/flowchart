@@ -1,13 +1,16 @@
 import { useId } from "react";
 import { scaleFlower } from "../scaleFlower";
+import { resolveColors } from "../../flowers/palettes";
+import type { FlowerProps } from "../../flowers/types";
 
 const NEW_VIEWBOX = scaleFlower([53, 53, 459, 459]);
 
-function Daisy() {
+function Daisy({ colors }: FlowerProps) {
 
     const outerPetalAId = useId();
     const outerPetalBId = useId();
     const innerPetalId = useId();
+    const c = resolveColors("botanical-daisy", colors);
 
     return (
         <>
@@ -18,7 +21,7 @@ function Daisy() {
             </defs>
             <g transform={NEW_VIEWBOX}>
                 <g>
-                    <g fill="#fff9e8">
+                    <g fill={c[0]}>
                         <use href={`#${outerPetalAId}`} transform="rotate(0 256 256)"/>
                         <use href={`#${outerPetalAId}`} transform="rotate(45 256 256)"/>
                         <use href={`#${outerPetalAId}`} transform="rotate(90 256 256)"/>
@@ -28,7 +31,7 @@ function Daisy() {
                         <use href={`#${outerPetalAId}`} transform="rotate(270 256 256)"/>
                         <use href={`#${outerPetalAId}`} transform="rotate(315 256 256)"/>
                     </g>
-                    <g fill="#e4e9dc">
+                    <g fill={c[1]}>
                         <use href={`#${outerPetalBId}`} transform="rotate(22 256 256)"/>
                         <use href={`#${outerPetalBId}`} transform="rotate(67 256 256)"/>
                         <use href={`#${outerPetalBId}`} transform="rotate(112 256 256)"/>
@@ -39,7 +42,7 @@ function Daisy() {
                         <use href={`#${outerPetalBId}`} transform="rotate(337 256 256)"/>
                     </g>
                 </g>
-                <g fill="#d2ddd4">
+                <g fill={c[2]}>
                     <use href={`#${innerPetalId}`} transform="rotate(11 256 256)"/>
                     <use href={`#${innerPetalId}`} transform="rotate(41 256 256)"/>
                     <use href={`#${innerPetalId}`} transform="rotate(71 256 256)"/>
@@ -54,11 +57,11 @@ function Daisy() {
                     <use href={`#${innerPetalId}`} transform="rotate(341 256 256)"/>
                 </g>
                 <g>
-                    <circle cx="256" cy="256" r="82" fill="#bd7428"/>
-                    <circle cx="256" cy="250" r="73" fill="#dfa02d"/>
-                    <circle cx="246" cy="237" r="55" fill="#edb83d"/>
-                    <circle cx="231" cy="217" r="23" fill="#f8d15a"/>
-                    <g fill="#ffd967">
+                    <circle cx="256" cy="256" r="82" fill={c[3]}/>
+                    <circle cx="256" cy="250" r="73" fill={c[4]}/>
+                    <circle cx="246" cy="237" r="55" fill={c[5]}/>
+                    <circle cx="231" cy="217" r="23" fill={c[6]}/>
+                    <g fill={c[6]}>
                         <circle cx="226" cy="237" r="7"/>
                         <circle cx="248" cy="224" r="6"/>
                         <circle cx="271" cy="226" r="7"/>
@@ -75,7 +78,7 @@ function Daisy() {
                         <circle cx="236" cy="297" r="6"/>
                         <circle cx="260" cy="296" r="7"/>
                     </g>
-                    <g fill="#fff0a1">
+                    <g fill={c[7]}>
                         <circle cx="224" cy="235" r="2.5"/>
                         <circle cx="247" cy="222" r="2"/>
                         <circle cx="269" cy="224" r="2.5"/>

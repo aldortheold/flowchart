@@ -7,6 +7,8 @@
     "dev": "vite --host",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "typecheck": "tsc -b --pretty false",
+    "test": "node --test src/editor/*.test.ts",
     "preview": "vite preview"
   },
   "dependencies": {
