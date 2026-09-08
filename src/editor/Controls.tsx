@@ -246,17 +246,23 @@ function Flowers({ act }: Pick<Props, "act">) {
     return (
         <Section icon="flower" title="Flowers" open>
             {FLOWER_STYLES.map((style) => (
-                <div className="ed-flower-group" key={style}>
-                    <div className="ed-group-heading"><h3>{FLOWER_STYLE_DETAILS[style].label}</h3><span>{FLOWER_STYLE_DETAILS[style].description}</span></div>
-                    <div className="ed-flower-grid">
-                        {FLOWERS.filter((flower) => flower.style === style).map((flower) => (
-                            <button key={flower.id} className="ed-flower-card" type="button" onClick={() => act.add(flower.id)} aria-label={`Add ${style} ${flower.name}`}>
-                                <svg viewBox="0 0 512 512" aria-hidden="true"><FlowerArt id={flower.id} /></svg>
-                                <span>{flower.name}</span><small>Add</small>
-                            </button>
-                        ))}
+                <details className="ed-flower-group" key={style} open={style === FLOWER_STYLES[0]}>
+                    <summary className="ed-group-heading">
+                        <h3>{FLOWER_STYLE_DETAILS[style].label}</h3>
+                        <span>{FLOWER_STYLE_DETAILS[style].description}</span>
+                        <Icon name="chevron-down" className="ed-summary-arrow" />
+                    </summary>
+                    <div className="ed-flower-group-body">
+                        <div className="ed-flower-grid">
+                            {FLOWERS.filter((flower) => flower.style === style).map((flower) => (
+                                <button key={flower.id} className="ed-flower-card" type="button" onClick={() => act.add(flower.id)} aria-label={`Add ${style} ${flower.name}`}>
+                                    <svg viewBox="0 0 512 512" aria-hidden="true"><FlowerArt id={flower.id} /></svg>
+                                    <span>{flower.name}</span><small>Add</small>
+                                </button>
+                            ))}
+                        </div>
                     </div>
-                </div>
+                </details>
             ))}
         </Section>
     )
