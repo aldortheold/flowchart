@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react"
+import { useId, useState, type ReactNode } from "react"
 import {
     FlowerArt,
     FLOWERS,
@@ -73,8 +73,41 @@ function ColorField({ label, value, set }: { label: string; value: string; set: 
     )
 }
 
-function RangeField({ label, value, min, max, step, unit = "", set, act }: {
+function HelpTip({ label, children }: { label: string; children: ReactNode }) {
+    const [open, setOpen] = useState(false)
+    const id = useId()
+
+    return (
+        <span
+            className={`ed-help-tip${open ? " is-open" : ""}`}
+            onBlur={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false)
+            }}
+            onKeyDown={(event) => {
+                if (event.key === "Escape") {
+                    setOpen(false)
+                    event.currentTarget.querySelector("button")?.focus()
+                }
+            }}
+        >
+            <button
+                type="button"
+                className="ed-help-trigger"
+                aria-label={`Help: ${label}`}
+                aria-describedby={id}
+                aria-controls={id}
+                aria-expanded={open}
+                onFocus={() => setOpen(true)}
+                onClick={() => setOpen(true)}
+            >?</button>
+            <span className="ed-help-popover" id={id} role="tooltip">{children}</span>
+        </span>
+    )
+}
+
+function RangeField({ label, help, value, min, max, step, unit = "", set, act }: {
     label: string
+    help?: ReactNode
     value: number
     min: number
     max: number
@@ -83,10 +116,16 @@ function RangeField({ label, value, min, max, step, unit = "", set, act }: {
     set: (value: number) => Doc
     act: ControlActions
 }) {
+    const id = useId()
+
     return (
-        <label className="ed-range-field">
-            <span><span>{label}</span><output>{Math.round(value * 100) / 100}{unit}</output></span>
+        <div className="ed-range-field">
+            <span>
+                <span className="ed-range-label"><label htmlFor={id}>{label}</label>{help && <HelpTip label={label}>{help}</HelpTip>}</span>
+                <output htmlFor={id}>{Math.round(value * 100) / 100}{unit}</output>
+            </span>
             <input
+                id={id}
                 type="range"
                 min={min}
                 max={max}
@@ -97,7 +136,7 @@ function RangeField({ label, value, min, max, step, unit = "", set, act }: {
                 onPointerCancel={act.end}
                 onChange={(event) => act.live(set(Number(event.target.value)))}
             />
-        </label>
+        </div>
     )
 }
 
@@ -274,35 +313,46 @@ function Composition({ doc, act }: Pick<Props, "doc" | "act">) {
             <button type="button" className="ed-primary-btn ed-generate" onClick={act.generate}>
                 <Icon name="sparkle" />Randomize composition
             </button>
-            <RangeField label="Density" value={doc.gen.density} min={10} max={100} step={1} unit="%" act={act}
+            <div className="ed-composition-note"><Icon name="info" /><span>These settings apply to the next randomization. Generated flowers remain fully editable.</span></div>
+            <RangeField label="Density" help="Controls how many flowers fill the canvas." value={doc.gen.density} min={10} max={100} step={1} unit="%" act={act}
                 set={(density) => ({ ...doc, gen: { ...doc.gen, density } })} />
-            <RangeField label="Flower size" value={doc.gen.size} min={0.6} max={1.6} step={0.05} unit="×" act={act}
+            <RangeField label="Flower size" help="Controls the overall flower scale in the next composition." value={doc.gen.size} min={0.6} max={1.6} step={0.05} unit="×" act={act}
                 set={(size) => ({ ...doc, gen: { ...doc.gen, size } })} />
             <div className="ed-subgroup">
                 <h3>Randomize with</h3>
-                <div className="ed-pool-grid">
-                    {FLOWERS.map((flower) => {
-                        const checked = doc.gen.pool.includes(flower.id)
-                        return (
-                            <label key={flower.id} className="ed-check-chip">
-                                <input
-                                    type="checkbox"
-                                    checked={checked}
-                                    disabled={checked && doc.gen.pool.length === 1}
-                                    onChange={() => {
-                                        const pool = checked
-                                            ? doc.gen.pool.filter((id) => id !== flower.id)
-                                            : [...doc.gen.pool, flower.id]
-                                        act.change({ ...doc, gen: { ...doc.gen, pool } })
-                                    }}
-                                />
-                                <span>{flower.name}<small>{flower.style}</small></span>
-                            </label>
-                        )
-                    })}
-                </div>
+                {FLOWER_STYLES.map((style) => (
+                    <details className="ed-flower-group" key={style} open={style === FLOWER_STYLES[0]}>
+                        <summary className="ed-group-heading">
+                            <h3>{FLOWER_STYLE_DETAILS[style].label}</h3>
+                            <span>{FLOWER_STYLE_DETAILS[style].description}</span>
+                            <Icon name="chevron-down" className="ed-summary-arrow" />
+                        </summary>
+                        <div className="ed-flower-group-body">
+                            <div className="ed-pool-grid">
+                                {FLOWERS.filter((flower) => flower.style === style).map((flower) => {
+                                    const checked = doc.gen.pool.includes(flower.id)
+                                    return (
+                                        <label key={flower.id} className="ed-check-chip">
+                                            <input
+                                                type="checkbox"
+                                                checked={checked}
+                                                disabled={checked && doc.gen.pool.length === 1}
+                                                onChange={() => {
+                                                    const pool = checked
+                                                        ? doc.gen.pool.filter((id) => id !== flower.id)
+                                                        : [...doc.gen.pool, flower.id]
+                                                    act.change({ ...doc, gen: { ...doc.gen, pool } })
+                                                }}
+                                            />
+                                            <span>{flower.name}</span>
+                                        </label>
+                                    )
+                                })}
+                            </div>
+                        </div>
+                    </details>
+                ))}
             </div>
-            <p className="ed-help">Density and size apply to the next randomized composition. Every result stays fully editable.</p>
         </Section>
     )
 }
