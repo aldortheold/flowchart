@@ -7,7 +7,6 @@ import { FLOWER_PALETTES, FLOWER_SLOTS } from "./palettes";
 import {
     FLOWER_IDS,
     FLOWER_SPECIES,
-    FLOWER_SPECIES_NAMES,
     FLOWER_STYLES,
     isFlowerId,
     type FlowerAsset,
@@ -51,7 +50,6 @@ export const FLOWERS: FlowerAsset[] = FLOWER_STYLES.flatMap((style) =>
             id,
             style,
             species,
-            name: FLOWER_SPECIES_NAMES[species],
             slots: [...FLOWER_SLOTS[id]],
             colors: [...FLOWER_PALETTES[id]],
             art: ART_BY_STYLE[style][COMPONENT_BY_SPECIES[species]],

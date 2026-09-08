@@ -5,6 +5,7 @@ import type { Doc, FlowerItem, PatternId } from "./types"
 type ArtProps = {
     doc: Doc
     onItemDown?: (event: ReactPointerEvent<SVGGElement>, id: string) => void
+    itemLabel?: (item: FlowerItem) => string
 }
 
 function PatternArt({ id, unit, ink, opacity }: {
@@ -79,16 +80,17 @@ function Bg({ doc, prefix }: { doc: Doc; prefix: string }) {
     )
 }
 
-export function ItemArt({ item, onDown }: {
+export function ItemArt({ item, onDown, label }: {
     item: FlowerItem
     onDown?: (event: ReactPointerEvent<SVGGElement>, id: string) => void
+    label?: string
 }) {
     if (item.hidden || !FLOWER_MAP[item.asset]) return null
 
     return (
         <g
             data-flower-id={item.id}
-            aria-label={`${FLOWER_MAP[item.asset].name} flower`}
+            aria-label={label}
             className={onDown ? "ed-flower" : undefined}
             transform={`translate(${item.x} ${item.y}) rotate(${item.rot}) translate(${-item.size / 2} ${-item.size / 2}) scale(${item.size / 512})`}
             onPointerDown={onDown ? (event) => onDown(event, item.id) : undefined}
@@ -98,7 +100,7 @@ export function ItemArt({ item, onDown }: {
     )
 }
 
-export function Art({ doc, onItemDown }: ArtProps) {
+export function Art({ doc, onItemDown, itemLabel }: ArtProps) {
     const prefix = useId().replace(/:/g, "")
 
     return (
@@ -106,7 +108,7 @@ export function Art({ doc, onItemDown }: ArtProps) {
             <Bg doc={doc} prefix={prefix} />
             <g data-art-items="true">
                 {doc.items.map((item) => (
-                    <ItemArt key={item.id} item={item} onDown={onItemDown} />
+                    <ItemArt key={item.id} item={item} onDown={onItemDown} label={itemLabel?.(item)} />
                 ))}
             </g>
         </>

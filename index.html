@@ -1,18 +1,43 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-locale="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/updated-logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Create flower wallpapers from 75 editable vector blooms, then export your composition as JPG, PNG, or SVG." />
+    <meta name="description" content="Flowchart" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Flowchart — Flower wallpaper studio" />
-    <meta property="og:description" content="Compose a flower wallpaper, tune every petal, and export it at exactly the size you need." />
+    <meta property="og:title" content="Flowchart" />
+    <meta property="og:description" content="Flowchart" />
     <meta name="twitter:card" content="summary" />
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#f6f5ef" />
     <script>
       (() => {
+        const localeKey = "flowchart-locale"
+        const supportedLocales = ["en", "ru"]
+        let locale = "en"
+
+        try {
+          const saved = localStorage.getItem(localeKey)
+          const savedLanguage = saved?.trim().toLowerCase().split(/[-_]/, 1)[0]
+          const candidates = supportedLocales.includes(savedLanguage)
+            ? [savedLanguage]
+            : (navigator.languages?.length ? navigator.languages : [navigator.language])
+          for (const candidate of candidates) {
+            const language = candidate?.trim().toLowerCase().split(/[-_]/, 1)[0]
+            if (supportedLocales.includes(language)) {
+              locale = language
+              break
+            }
+          }
+        } catch {
+          const language = navigator.language?.trim().toLowerCase().split(/[-_]/, 1)[0]
+          if (supportedLocales.includes(language)) locale = language
+        }
+
+        document.documentElement.lang = locale
+        document.documentElement.dataset.locale = locale
+
         const key = "flowchart-theme"
         let mode = "system"
 
@@ -33,7 +58,7 @@
           theme === "dark" ? "#111713" : "#f6f5ef"
       })()
     </script>
-    <title>Flowchart — Flower wallpaper studio</title>
+    <title>Flowchart</title>
   </head>
   <body>
     <div id="root"></div>

@@ -591,6 +591,6 @@ export const GENERATED_FLOWER_PALETTES = {
 export const GENERATED_FLOWER_SLOTS = Object.fromEntries(
     Object.entries(GENERATED_FLOWER_PALETTES).map(([id, colors]) => [
         id,
-        colors.map((_, index) => `Artwork color ${index + 1}`),
+        colors.map((_, index) => `artwork-color-${index + 1}`),
     ]),
 ) as { [Id in keyof typeof GENERATED_FLOWER_PALETTES]: string[] };

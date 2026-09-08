@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "typecheck": "tsc -b --pretty false",
-    "test": "node --test src/editor/*.test.ts",
+    "test": "node --test src/editor/*.test.ts src/i18n/*.test.ts",
     "test:flowers": "node scripts/test-flower-runtime.mjs",
     "preview": "vite preview"
   },

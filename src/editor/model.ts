@@ -14,6 +14,7 @@ export const MAX_SIDE = 8192;
 export const MAX_PIXELS = 16_777_216;
 export const MIN_VISIBLE = 32;
 export const MAX_ITEMS = 1000;
+export type SizeError = "integer" | "range" | "area";
 
 const MAX_ITEM_SIZE = MAX_SIDE * 4;
 const MAX_POOL = 128;
@@ -207,15 +208,15 @@ export function validSize(w: unknown, h: unknown): boolean {
         && w * h <= MAX_PIXELS;
 }
 
-export function sizeError(w: unknown, h: unknown): string | null {
+export function sizeError(w: unknown, h: unknown): SizeError | null {
     if (!num(w) || !num(h) || !Number.isInteger(w) || !Number.isInteger(h)) {
-        return "Width and height must be whole numbers.";
+        return "integer";
     }
     if (w < MIN_SIDE || h < MIN_SIDE || w > MAX_SIDE || h > MAX_SIDE) {
-        return `Each side must be between ${MIN_SIDE} and ${MAX_SIDE} pixels.`;
+        return "range";
     }
     if (w * h > MAX_PIXELS) {
-        return `Canvas area must not exceed ${MAX_PIXELS.toLocaleString("en-US")} pixels.`;
+        return "area";
     }
     return null;
 }
@@ -307,8 +308,8 @@ export function clampItem(item: FlowerItem, canvas: Pick<Canvas, "w" | "h">, vis
 
 export function resizeDoc(doc: Doc, w: number, h: number, nextRatio: Ratio = "custom"): Doc {
     const error = sizeError(w, h);
-    if (error) throw new RangeError(error);
-    if (!ratio(nextRatio)) throw new RangeError("Unknown canvas ratio.");
+    if (error) throw new RangeError(`invalid-canvas-size:${error}`);
+    if (!ratio(nextRatio)) throw new RangeError("invalid-canvas-ratio");
 
     const sx = w / doc.canvas.w;
     const sy = h / doc.canvas.h;

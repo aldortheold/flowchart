@@ -1,6 +1,17 @@
 import type { Doc } from "./types"
 
 export type ExportType = "jpg" | "png" | "svg"
+export type ExportErrorCode = "prepare" | "image" | "canvas"
+
+export class ExportFailure extends Error {
+    readonly code: ExportErrorCode
+
+    constructor(code: ExportErrorCode) {
+        super(`export:${code}`)
+        this.name = "ExportFailure"
+        this.code = code
+    }
+}
 
 function stamp(now = new Date()) {
     const part = (n: number) => String(n).padStart(2, "0")
@@ -47,7 +58,7 @@ function loadImage(url: string) {
     return new Promise<HTMLImageElement>((resolve, reject) => {
         const img = new Image()
         img.onload = () => resolve(img)
-        img.onerror = () => reject(new Error("The artwork could not be prepared for raster export."))
+        img.onerror = () => reject(new ExportFailure("prepare"))
         img.src = url
     })
 }
@@ -56,7 +67,7 @@ function canvasBlob(canvas: HTMLCanvasElement, type: string, quality?: number) {
     return new Promise<Blob>((resolve, reject) => {
         canvas.toBlob((blob) => {
             if (blob) resolve(blob)
-            else reject(new Error("The browser could not create the requested image."))
+            else reject(new ExportFailure("image"))
         }, type, quality)
     })
 }
@@ -77,7 +88,7 @@ export async function exportArt(svg: SVGSVGElement, doc: Doc, type: ExportType, 
         canvas.width = doc.canvas.w
         canvas.height = doc.canvas.h
         const ctx = canvas.getContext("2d")
-        if (!ctx) throw new Error("Canvas export is not available in this browser.")
+        if (!ctx) throw new ExportFailure("canvas")
 
         if (type === "jpg") {
             ctx.fillStyle = matte

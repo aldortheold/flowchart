@@ -16,10 +16,11 @@ import {
   FlowerArt,
   FLOWER_MAP,
   FLOWER_STYLES,
-  FLOWER_STYLE_DETAILS,
   type FlowerId,
   type FlowerStyle,
 } from "../flowers"
+import { LanguageSelector, useI18n } from "../i18n"
+import { flowerSpeciesKeys, flowerStyleDescriptionKeys, flowerStyleNameKeys } from "../i18n/catalog"
 import { ThemeToggle } from "../theme"
 import "./Home.css"
 
@@ -198,33 +199,43 @@ const STYLE_FLOWERS: Record<FlowerStyle, FlowerId> = {
 
 const LAB_PALETTES = [
   {
-    name: "Tea rose",
+    id: "teaRose",
+    labelKey: "home.palette.teaRose",
     colors: ["#e8687b", "#d94c67", "#bd3455", "#f1848e", "#df5970", "#a92d4d", "#762943", "#f8a9af"],
   },
   {
-    name: "Moon garden",
+    id: "moonGarden",
+    labelKey: "home.palette.moonGarden",
     colors: ["#9bc6b3", "#6ea58e", "#3f7868", "#c2d8c3", "#7faf91", "#315b51", "#173f38", "#e5eed9"],
   },
   {
-    name: "Afterglow",
+    id: "afterglow",
+    labelKey: "home.palette.afterglow",
     colors: ["#ef8d55", "#dd654c", "#a83c48", "#f5b16f", "#cb4c53", "#792d45", "#4e2740", "#f8d79c"],
   },
   {
-    name: "Porcelain",
+    id: "porcelain",
+    labelKey: "home.palette.porcelain",
     colors: ["#b8cfdf", "#7fa8c2", "#486f91", "#dce8e8", "#91b7c7", "#35536f", "#26384f", "#f4eee1"],
   },
-]
+] as const
 
 function Artwork({ doc, className = "" }: { doc: Doc; className?: string }) {
+  const { t } = useI18n()
   return (
     <svg
       className={className}
       viewBox={`0 0 ${doc.canvas.w} ${doc.canvas.h}`}
       role="img"
-      aria-label="Flower wallpaper made in Flowchart"
+      aria-label={t("home.artworkLabel")}
       preserveAspectRatio="xMidYMid slice"
     >
-      <Art doc={doc} />
+      <Art
+        doc={doc}
+        itemLabel={(item) => t("editor.art.flowerLabel", {
+          species: t(flowerSpeciesKeys[FLOWER_MAP[item.asset].species]),
+        })}
+      />
     </svg>
   )
 }
@@ -255,6 +266,7 @@ function ArrowLink({ children, className = "" }: { children: ReactNode; classNam
 }
 
 function Home() {
+  const { t, tp, number } = useI18n()
   const reduceMotion = useReducedMotion()
   const heroRef = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] })
@@ -268,8 +280,11 @@ function Home() {
   const [density, setDensity] = useState(62)
 
   useEffect(() => {
-    document.title = "Flowchart — Flower wallpaper studio"
-  }, [])
+    document.title = t("home.meta.title")
+    document.querySelector('meta[name="description"]')?.setAttribute("content", t("home.meta.description"))
+    document.querySelector('meta[property="og:title"]')?.setAttribute("content", t("home.meta.title"))
+    document.querySelector('meta[property="og:description"]')?.setAttribute("content", t("home.meta.description"))
+  }, [t])
 
   const studioDoc = useMemo(() => {
     const source = STUDIO_DOCS[studioIndex]!
@@ -287,18 +302,19 @@ function Home() {
 
   return (
     <main className="home" id="top">
-      <a className="home-skip" href="#home-content">Skip to content</a>
+      <a className="home-skip" href="#home-content">{t("home.skip")}</a>
 
-      <header className="home-header" aria-label="Primary navigation">
-        <Link className="home-logo" to="/" aria-label="Flowchart home"><Brand /></Link>
-        <nav className="home-nav" aria-label="Homepage sections">
-          <a href="#styles">Styles</a>
-          <a href="#customize">Customize</a>
-          <a href="#studio">Studio</a>
+      <header className="home-header" aria-label={t("home.nav.primary")}>
+        <Link className="home-logo" to="/" aria-label={t("common.flowchartHome")}><Brand /></Link>
+        <nav className="home-nav" aria-label={t("home.nav.sections")}>
+          <a href="#styles">{t("home.nav.styles")}</a>
+          <a href="#customize">{t("home.nav.customize")}</a>
+          <a href="#studio">{t("home.nav.studio")}</a>
         </nav>
         <div className="home-head-actions">
+          <LanguageSelector />
           <ThemeToggle />
-          <Link className="home-head-cta" to="/editor">Open studio <Icon name="arrow-right" /></Link>
+          <Link className="home-head-cta" to="/editor">{t("home.openStudio")} <Icon name="arrow-right" /></Link>
         </div>
       </header>
 
@@ -310,29 +326,29 @@ function Home() {
             initial={reduceMotion ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: reduceMotion ? 0 : 0.12, duration: 0.6 }}
-          ><Icon name="flower" /> Flower wallpaper studio</motion.p>
+          ><Icon name="flower" /> {t("home.hero.kicker")}</motion.p>
           <motion.h1
             id="hero-title"
             initial={reduceMotion ? false : { opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: reduceMotion ? 0 : 0.2, duration: 0.78, ease: [0.22, 1, 0.36, 1] }}
-          >Your screen,<br /><em>in full bloom.</em></motion.h1>
+          >{t("home.hero.titleLine")}<br /><em>{t("home.hero.titleEmphasis")}</em></motion.h1>
           <motion.p
             className="home-hero-lede"
             initial={reduceMotion ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: reduceMotion ? 0 : 0.34, duration: 0.68 }}
-          >Compose a flower wallpaper, tune every petal, and export it at exactly the size you need.</motion.p>
+          >{t("home.hero.lede")}</motion.p>
           <motion.div
             className="home-hero-actions"
             initial={reduceMotion ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: reduceMotion ? 0 : 0.44, duration: 0.68 }}
           >
-            <ArrowLink className="is-primary">Create a wallpaper</ArrowLink>
-            <a className="home-text-link" href="#studio">See how it works <Icon name="chevron-down" /></a>
+            <ArrowLink className="is-primary">{t("home.hero.create")}</ArrowLink>
+            <a className="home-text-link" href="#studio">{t("home.hero.howItWorks")} <Icon name="chevron-down" /></a>
           </motion.div>
-          <div className="home-hero-note"><span>75 vector flowers</span><span>5 art styles</span><span>No sign-up</span></div>
+          <div className="home-hero-note"><span>{t("home.hero.vectorFlowers")}</span><span>{t("home.hero.artStyles")}</span><span>{t("home.hero.noSignup")}</span></div>
         </motion.div>
 
         <motion.div
@@ -344,7 +360,7 @@ function Home() {
         >
           <div className="home-hero-canvas">
             <div className="home-canvas-bar">
-              <span><i /> Flowchart canvas</span>
+              <span><i /> {t("home.hero.canvasLabel")}</span>
               <span>1600 × 900</span>
             </div>
             <Artwork doc={HERO_DOC} />
@@ -357,20 +373,19 @@ function Home() {
           </div>
         </motion.div>
 
-        <a className="home-scroll-cue" href="#styles"><span>Scroll to explore</span><i /></a>
+        <a className="home-scroll-cue" href="#styles"><span>{t("home.hero.scroll")}</span><i /></a>
       </section>
 
       <div id="home-content">
         <section className="home-style-section" id="styles" aria-labelledby="styles-title">
           <Reveal className="home-section-intro home-style-intro">
-            <p className="home-kicker is-light">The flower library</p>
-            <h2 id="styles-title">One garden.<br /><em>Five visual languages.</em></h2>
-            <p>Fifteen familiar species are redrawn in every style. Choose a direction—or mix them when the mood calls for it.</p>
+            <p className="home-kicker is-light">{t("home.styles.kicker")}</p>
+            <h2 id="styles-title">{t("home.styles.titleLine")}<br /><em>{t("home.styles.titleEmphasis")}</em></h2>
+            <p>{t("home.styles.description")}</p>
           </Reveal>
 
-          <div className="home-style-rail" role="group" aria-label="Flower styles">
+          <div className="home-style-rail" role="group" aria-label={t("home.styles.groupLabel")}>
             {FLOWER_STYLES.map((style, index) => {
-              const details = FLOWER_STYLE_DETAILS[style]
               const active = style === activeStyle
               return (
                 <motion.button
@@ -387,22 +402,22 @@ function Home() {
                   <span className="home-style-number">0{index + 1}</span>
                   <svg viewBox="0 0 512 512" aria-hidden="true"><FlowerArt id={STYLE_FLOWERS[style]} /></svg>
                   <span className="home-style-copy">
-                    <strong>{details.label}</strong>
-                    <small>{details.description}</small>
+                    <strong>{t(flowerStyleNameKeys[style])}</strong>
+                    <small>{t(flowerStyleDescriptionKeys[style])}</small>
                   </span>
-                  <span className="home-style-count">15 flowers</span>
+                  <span className="home-style-count">{tp("flower.count", 15, { count: number(15) })}</span>
                 </motion.button>
               )
             })}
           </div>
           <div className="home-style-footer">
-            <p><span>{FLOWER_STYLE_DETAILS[activeStyle].label}</span> is selected. Find all fifteen species in the editor.</p>
-            <Link to="/editor">Browse the full garden <Icon name="arrow-right" /></Link>
+            <p>{t("home.styles.selected", { style: t(flowerStyleNameKeys[activeStyle]) })}</p>
+            <Link to="/editor">{t("home.styles.browse")} <Icon name="arrow-right" /></Link>
           </div>
         </section>
 
         <section className="home-lab" id="customize" aria-labelledby="lab-title">
-          <div className="home-lab-visual" aria-label="Interactive flower color preview">
+          <div className="home-lab-visual" aria-label={t("home.lab.previewLabel")}>
             <div className="home-lab-grid" aria-hidden="true" />
             <span className="home-lab-coordinate is-x">X 800</span>
             <span className="home-lab-coordinate is-y">Y 450</span>
@@ -410,7 +425,11 @@ function Home() {
               className="home-lab-flower"
               viewBox="0 0 512 512"
               role="img"
-              aria-label={`Botanical rose in the ${LAB_PALETTES[palette]!.name} palette`}
+              aria-label={t("home.lab.flowerPreview", {
+                style: t(flowerStyleNameKeys.botanical),
+                species: t(flowerSpeciesKeys.rose),
+                palette: t(LAB_PALETTES[palette]!.labelKey),
+              })}
               style={labFlowerStyle}
               animate={{ opacity: 1 }}
             >
@@ -420,52 +439,52 @@ function Home() {
           </div>
 
           <Reveal className="home-lab-panel">
-            <p className="home-kicker">Make it yours</p>
-            <h2 id="lab-title">Every flower stays<br /><em>within reach.</em></h2>
-            <p className="home-lab-lede">Change the palette, size, rotation, species, style, and layer order of any flower—generated or placed by hand.</p>
+            <p className="home-kicker">{t("home.lab.kicker")}</p>
+            <h2 id="lab-title">{t("home.lab.titleLine")}<br /><em>{t("home.lab.titleEmphasis")}</em></h2>
+            <p className="home-lab-lede">{t("home.lab.description")}</p>
 
             <fieldset className="home-palette-field">
-              <legend>Instance palette</legend>
+              <legend>{t("home.lab.paletteLegend")}</legend>
               <div className="home-palette-options">
                 {LAB_PALETTES.map((item, index) => (
                   <button
                     type="button"
                     className={palette === index ? "is-active" : ""}
-                    key={item.name}
+                    key={item.id}
                     onClick={() => setPalette(index)}
-                    aria-label={`Use ${item.name} palette`}
+                    aria-label={t("home.lab.usePalette", { palette: t(item.labelKey) })}
                     aria-pressed={palette === index}
                   >
                     <span>{item.colors.slice(0, 4).map((color) => <i key={color} style={{ background: color }} />)}</span>
-                    <small>{item.name}</small>
+                    <small>{t(item.labelKey)}</small>
                   </button>
                 ))}
               </div>
             </fieldset>
 
             <label className="home-lab-range">
-              <span><b>Flower size</b><output>{labSize}%</output></span>
+              <span><b>{t("home.lab.size")}</b><output>{number(labSize)}%</output></span>
               <input type="range" min="68" max="108" value={labSize} onChange={(event) => setLabSize(Number(event.target.value))} />
             </label>
             <label className="home-lab-range">
-              <span><b>Rotation</b><output>{labRotation}°</output></span>
+              <span><b>{t("home.lab.rotation")}</b><output>{number(labRotation)}°</output></span>
               <input type="range" min="-30" max="30" value={labRotation} onChange={(event) => setLabRotation(Number(event.target.value))} />
             </label>
-            <Link className="home-inline-link" to="/editor">Customize every detail <Icon name="arrow-right" /></Link>
+            <Link className="home-inline-link" to="/editor">{t("home.lab.customize")} <Icon name="arrow-right" /></Link>
           </Reveal>
         </section>
 
         <section className="home-studio-section" id="studio" aria-labelledby="studio-title">
           <Reveal className="home-section-intro home-studio-intro">
-            <p className="home-kicker">Inside the studio</p>
-            <h2 id="studio-title">Start with serendipity.<br /><em>Finish with intent.</em></h2>
-            <p>Randomize a complete composition, then move, resize, rotate, recolor, duplicate, hide, or reorder every bloom.</p>
+            <p className="home-kicker">{t("home.studio.kicker")}</p>
+            <h2 id="studio-title">{t("home.studio.titleLine")}<br /><em>{t("home.studio.titleEmphasis")}</em></h2>
+            <p>{t("home.studio.description")}</p>
           </Reveal>
 
           <Reveal className="home-studio">
             <div className="home-studio-head">
               <Brand />
-              <div><span><Icon name="undo" /></span><span><Icon name="redo" /></span><Link to="/editor">Open full editor <Icon name="arrow-right" /></Link></div>
+              <div><span><Icon name="undo" /></span><span><Icon name="redo" /></span><Link to="/editor">{t("home.studio.openEditor")} <Icon name="arrow-right" /></Link></div>
             </div>
             <div className="home-studio-work">
               <div className="home-studio-stage">
@@ -478,53 +497,53 @@ function Home() {
                 >
                   <Artwork doc={studioDoc} />
                 </motion.div>
-                <span className="home-studio-meta">1600 × 900px <i /> Saved locally</span>
+                <span className="home-studio-meta">1600 × 900px <i /> {t("home.studio.savedLocally")}</span>
               </div>
-              <aside className="home-studio-panel" aria-label="Interactive editor preview controls">
+              <aside className="home-studio-panel" aria-label={t("home.studio.controlsLabel")}>
                 <div className="home-preview-group">
-                  <p><Icon name="sparkle" /> Composition</p>
-                  <button type="button" className="home-randomize" onClick={randomizeStudio}><Icon name="sparkle" /> Randomize composition</button>
+                  <p><Icon name="sparkle" /> {t("home.studio.composition")}</p>
+                  <button type="button" className="home-randomize" onClick={randomizeStudio}><Icon name="sparkle" /> {t("home.studio.randomize")}</button>
                   <label className="home-lab-range">
-                    <span><b>Density</b><output>{density}%</output></span>
+                    <span><b>{t("home.studio.density")}</b><output>{number(density)}%</output></span>
                     <input type="range" min="18" max="86" value={density} onChange={(event) => setDensity(Number(event.target.value))} />
                   </label>
-                  <div className="home-preview-note"><Icon name="info" /> Generated flowers remain fully editable.</div>
+                  <div className="home-preview-note"><Icon name="info" /> {t("home.studio.editableNote")}</div>
                 </div>
-                <div className="home-preview-group is-collapsed"><p><Icon name="flower" /> Flowers <Icon name="chevron-right" /></p></div>
-                <div className="home-preview-group is-collapsed"><p><Icon name="ratio" /> Canvas &amp; size <Icon name="chevron-right" /></p></div>
-                <div className="home-preview-group is-collapsed"><p><Icon name="palette" /> Background <Icon name="chevron-right" /></p></div>
-                <div className="home-preview-group is-collapsed"><p><Icon name="layers" /> Layers · {studioDoc.items.length} <Icon name="chevron-right" /></p></div>
+                <div className="home-preview-group is-collapsed"><p><Icon name="flower" /> {t("home.studio.flowers")} <Icon name="chevron-right" /></p></div>
+                <div className="home-preview-group is-collapsed"><p><Icon name="ratio" /> {t("home.studio.canvasSize")} <Icon name="chevron-right" /></p></div>
+                <div className="home-preview-group is-collapsed"><p><Icon name="palette" /> {t("home.studio.background")} <Icon name="chevron-right" /></p></div>
+                <div className="home-preview-group is-collapsed"><p><Icon name="layers" /> {t("home.studio.layers", { count: number(studioDoc.items.length) })} <Icon name="chevron-right" /></p></div>
               </aside>
             </div>
           </Reveal>
 
-          <div className="home-capability-strip" aria-label="Editor capabilities">
-            <span><Icon name="move" /> Move &amp; transform</span>
-            <span><Icon name="palette" /> Recolor every fill</span>
-            <span><Icon name="layers" /> Arrange layers</span>
-            <span><Icon name="download" /> Export JPG, PNG, SVG</span>
+          <div className="home-capability-strip" aria-label={t("home.capabilities.label")}>
+            <span><Icon name="move" /> {t("home.capabilities.transform")}</span>
+            <span><Icon name="palette" /> {t("home.capabilities.recolor")}</span>
+            <span><Icon name="layers" /> {t("home.capabilities.layers")}</span>
+            <span><Icon name="download" /> {t("home.capabilities.export")}</span>
           </div>
         </section>
 
         <section className="home-ratios" aria-labelledby="ratios-title">
           <Reveal className="home-ratios-copy">
-            <p className="home-kicker is-light">Any canvas, exactly</p>
-            <h2 id="ratios-title">From the smallest screen<br /><em>to the widest idea.</em></h2>
-            <p>Choose a familiar ratio or enter your own safe dimensions. The artwork stays crisp and the composition stays editable.</p>
+            <p className="home-kicker is-light">{t("home.ratios.kicker")}</p>
+            <h2 id="ratios-title">{t("home.ratios.titleLine")}<br /><em>{t("home.ratios.titleEmphasis")}</em></h2>
+            <p>{t("home.ratios.description")}</p>
             <div className="home-format-row"><span>JPG</span><span>PNG</span><span>SVG</span></div>
           </Reveal>
           <div className="home-ratio-gallery">
             <motion.figure className="home-ratio-art is-desktop" initial={reduceMotion ? false : { opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: reduceMotion ? 0 : .65 }}>
               <Artwork doc={DESKTOP_DOC} />
-              <figcaption><strong>16:9</strong><span>Desktop</span></figcaption>
+              <figcaption><strong>16:9</strong><span>{t("home.ratios.desktop")}</span></figcaption>
             </motion.figure>
             <motion.figure className="home-ratio-art is-square" initial={reduceMotion ? false : { opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.25 }} transition={{ delay: reduceMotion ? 0 : .12, duration: reduceMotion ? 0 : .65 }}>
               <Artwork doc={SQUARE_DOC} />
-              <figcaption><strong>1:1</strong><span>Square</span></figcaption>
+              <figcaption><strong>1:1</strong><span>{t("home.ratios.square")}</span></figcaption>
             </motion.figure>
             <motion.figure className="home-ratio-art is-phone" initial={reduceMotion ? false : { opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.25 }} transition={{ delay: reduceMotion ? 0 : .22, duration: reduceMotion ? 0 : .65 }}>
               <Artwork doc={PHONE_DOC} />
-              <figcaption><strong>9:16</strong><span>Phone</span></figcaption>
+              <figcaption><strong>9:16</strong><span>{t("home.ratios.phone")}</span></figcaption>
             </motion.figure>
           </div>
         </section>
@@ -537,17 +556,17 @@ function Home() {
             <svg className="is-four" viewBox="0 0 512 512"><FlowerArt id="botanical-daisy" /></svg>
           </div>
           <Reveal className="home-final-copy">
-            <p className="home-kicker is-light">The canvas is ready</p>
-            <h2 id="final-title">Let your screen<br /><em>grow something.</em></h2>
-            <p>No registration required. Flowers of many shapes and colors are waiting for you to create your dream composition.</p>
-            <ArrowLink className="is-final">Open Flowchart studio</ArrowLink>
+            <p className="home-kicker is-light">{t("home.final.kicker")}</p>
+            <h2 id="final-title">{t("home.final.titleLine")}<br /><em>{t("home.final.titleEmphasis")}</em></h2>
+            <p>{t("home.final.description")}</p>
+            <ArrowLink className="is-final">{t("home.final.openStudio")}</ArrowLink>
           </Reveal>
         </section>
 
         <footer className="home-footer">
-          <Link to="/" aria-label="Flowchart home"><Brand /></Link>
-          <p>Flower wallpapers, made entirely in your browser.</p>
-          <div><a href="#top">Back to top <Icon name="arrow-right" /></a><ThemeToggle /></div>
+          <Link to="/" aria-label={t("common.flowchartHome")}><Brand /></Link>
+          <p>{t("home.footer.tagline")}</p>
+          <div><a href="#top">{t("home.footer.backToTop")} <Icon name="arrow-right" /></a><LanguageSelector /><ThemeToggle /></div>
         </footer>
       </div>
     </main>

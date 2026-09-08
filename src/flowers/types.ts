@@ -10,14 +10,6 @@ export const FLOWER_STYLES = [
 
 export type FlowerStyle = typeof FLOWER_STYLES[number];
 
-export const FLOWER_STYLE_DETAILS = {
-    botanical: { label: "Botanical", description: "Layered & organic" },
-    minimal: { label: "Minimal", description: "Bold & simple" },
-    "line-art": { label: "Line Art", description: "Clean & expressive" },
-    origami: { label: "Origami", description: "Crisp & geometric" },
-    retro: { label: "Retro", description: "Bold & vintage" },
-} as const satisfies Record<FlowerStyle, { label: string; description: string }>;
-
 export const FLOWER_SPECIES = [
     "rose",
     "tulip",
@@ -37,24 +29,6 @@ export const FLOWER_SPECIES = [
 ] as const;
 
 export type FlowerSpecies = typeof FLOWER_SPECIES[number];
-
-export const FLOWER_SPECIES_NAMES = {
-    rose: "Rose",
-    tulip: "Tulip",
-    daisy: "Daisy",
-    sunflower: "Sunflower",
-    lotus: "Lotus",
-    orchid: "Orchid",
-    hibiscus: "Hibiscus",
-    poppy: "Poppy",
-    peony: "Peony",
-    chrysanthemum: "Chrysanthemum",
-    dahlia: "Dahlia",
-    camellia: "Camellia",
-    anemone: "Anemone",
-    narcissus: "Narcissus",
-    "forget-me-not": "Forget-me-not",
-} as const satisfies Record<FlowerSpecies, string>;
 
 export type FlowerId = `${FlowerStyle}-${FlowerSpecies}`;
 
@@ -76,7 +50,6 @@ export type FlowerAsset = {
     id: FlowerId;
     style: FlowerStyle;
     species: FlowerSpecies;
-    name: string;
     slots: string[];
     colors: string[];
     art: ComponentType<FlowerProps>;

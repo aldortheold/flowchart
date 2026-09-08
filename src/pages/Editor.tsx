@@ -4,11 +4,12 @@ import { motion, useReducedMotion } from "framer-motion"
 import Brand from "../components/Brand"
 import { Icon } from "../components/Icons"
 import { ThemeToggle } from "../theme"
+import { LanguageSelector, useI18n, type MessageKey, type MessageValues, type PluralKey } from "../i18n"
 import { FLOWER_IDS, FLOWER_MAP } from "../flowers"
 import type { FlowerId } from "../flowers"
 import { Controls, type ControlActions, type LayerMove } from "../editor/Controls"
 import { EditorCanvas } from "../editor/EditorCanvas"
-import { exportArt, type ExportType } from "../editor/export"
+import { ExportFailure, exportArt, type ExportErrorCode, type ExportType } from "../editor/export"
 import { generate, overlapHigh, stylesMixed } from "../editor/generate"
 import { canRedo, canUndo, commit, makeHistory, redo, replace, undo, type Hist } from "../editor/history"
 import { clampItem, makeDoc, parseDoc, sameDoc } from "../editor/model"
@@ -18,7 +19,16 @@ import "./Editor.css"
 const DOC_KEY = "flowchart-document-v1"
 const PANEL_KEY = "flowchart-panel-width"
 
+const exportErrorKeys = {
+    prepare: "editor.export.error.prepare",
+    image: "editor.export.error.image",
+    canvas: "editor.export.error.canvas",
+} as const satisfies Record<ExportErrorCode, MessageKey>
+
 type Gesture = "idle" | "first" | "live"
+type ToastMessage =
+    | { key: MessageKey; values?: MessageValues }
+    | { pluralKey: PluralKey; count: number }
 
 function savedDoc() {
     try {
@@ -101,11 +111,12 @@ function moveLayers(doc: Doc, ids: string[], move: LayerMove) {
 }
 
 function Editor() {
+    const { t, tp, number } = useI18n()
     const reduceMotion = useReducedMotion()
     const [hist, setHist] = useState<Hist<Doc>>(() => makeHistory(savedDoc()))
     const [sel, setSel] = useState<string[]>([])
     const [panel, setPanel] = useState(savedPanel)
-    const [toast, setToast] = useState("")
+    const [toast, setToast] = useState<ToastMessage | null>(null)
     const [saving, setSaving] = useState<ExportType | null>(null)
     const [exportOpen, setExportOpen] = useState(false)
     const [matte, setMatte] = useState("#f7f3ea")
@@ -121,10 +132,10 @@ function Editor() {
     const doc = hist.now
     const fit = useCanvasFit(stageRef, doc.canvas.w / doc.canvas.h)
 
-    const note = useCallback((text: string) => {
-        setToast(text)
+    const note = useCallback((message: ToastMessage) => {
+        setToast(message)
         if (toastTimer.current) window.clearTimeout(toastTimer.current)
-        toastTimer.current = window.setTimeout(() => setToast(""), 3200)
+        toastTimer.current = window.setTimeout(() => setToast(null), 3200)
     }, [])
 
     useEffect(() => () => {
@@ -132,8 +143,11 @@ function Editor() {
     }, [])
 
     useEffect(() => {
-        document.title = "Flowchart Studio — Flower wallpaper editor"
-    }, [])
+        document.title = t("editor.meta.title")
+        document.querySelector('meta[name="description"]')?.setAttribute("content", t("editor.meta.description"))
+        document.querySelector('meta[property="og:title"]')?.setAttribute("content", t("editor.meta.title"))
+        document.querySelector('meta[property="og:description"]')?.setAttribute("content", t("editor.meta.description"))
+    }, [t])
 
     useEffect(() => {
         const timer = window.setTimeout(() => {
@@ -209,7 +223,7 @@ function Editor() {
     const randomize = useCallback(() => {
         change(generate(doc))
         setSel([])
-        note("A new editable composition is ready.")
+        note({ key: "editor.toast.compositionReady" })
     }, [change, doc, note])
 
     const duplicate = useCallback(() => {
@@ -232,7 +246,7 @@ function Editor() {
         const count = sel.length
         change({ ...doc, items: doc.items.filter((item) => !sel.includes(item.id)) })
         setSel([])
-        note(`${count === 1 ? "Flower" : `${count} flowers`} deleted.`)
+        note({ pluralKey: "flower.deleted", count })
     }, [change, doc, note, sel])
 
     const moveLayer = useCallback((move: LayerMove) => {
@@ -241,7 +255,7 @@ function Editor() {
 
     const copy = useCallback(() => {
         clip.current = doc.items.filter((item) => sel.includes(item.id)).map((item) => ({ ...item, colors: [...item.colors] }))
-        if (clip.current.length) note(`${clip.current.length === 1 ? "Flower" : `${clip.current.length} flowers`} copied.`)
+        if (clip.current.length) note({ pluralKey: "flower.copied", count: clip.current.length })
     }, [doc.items, note, sel])
 
     const paste = useCallback(() => {
@@ -337,8 +351,7 @@ function Editor() {
         duplicate,
         remove,
         moveLayer,
-        note,
-    }), [add, begin, change, duplicate, end, live, moveLayer, note, randomize, remove])
+    }), [add, begin, change, duplicate, end, live, moveLayer, randomize, remove])
 
     function startPanel(event: ReactPointerEvent<HTMLDivElement>) {
         if (window.innerWidth <= 820) return
@@ -373,7 +386,7 @@ function Editor() {
         setHist(makeHistory(blank))
         setSel([])
         discardRef.current?.close()
-        note("The design was reset to a blank canvas.")
+        note({ key: "editor.toast.reset" })
     }
 
     function toggleExport() {
@@ -397,9 +410,11 @@ function Editor() {
             await exportArt(svgRef.current, doc, type, matte)
             exportRef.current?.close()
             setExportOpen(false)
-            note(`${type.toUpperCase()} export started.`)
+            note({ key: "editor.toast.exportStarted", values: { format: type.toUpperCase() } })
         } catch (error) {
-            note(error instanceof Error ? error.message : "Export failed. Please try again.")
+            note(error instanceof ExportFailure
+                ? { key: exportErrorKeys[error.code] }
+                : { key: "editor.toast.exportFailed" })
         } finally {
             setSaving(null)
         }
@@ -407,42 +422,48 @@ function Editor() {
 
     const workStyle = { "--panel-w": `${panel}px` } as CSSProperties
     const canvasStyle = { width: `${fit.w}px`, height: `${fit.h}px` }
+    const toastText = toast
+        ? "pluralKey" in toast
+            ? tp(toast.pluralKey, toast.count, { count: number(toast.count) })
+            : t(toast.key, toast.values)
+        : ""
 
     return (
         <motion.main className="ed-shell" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: reduceMotion ? 0 : 0.22 }}>
             <header className="ed-head">
-                <Link to="/" className="ed-logo" aria-label="Flowchart home"><Brand /></Link>
+                <Link to="/" className="ed-logo" aria-label={t("common.flowchartHome")}><Brand /></Link>
                 <div className="ed-head-actions">
+                    <LanguageSelector className="ed-language" />
                     <ThemeToggle className="ed-tool-btn" />
-                    <button className="ed-tool-btn" type="button" onClick={undoDoc} disabled={!canUndo(hist)} aria-label="Undo" title="Undo (Ctrl/Cmd+Z)"><Icon name="undo" /></button>
-                    <button className="ed-tool-btn" type="button" onClick={redoDoc} disabled={!canRedo(hist)} aria-label="Redo" title="Redo (Ctrl/Cmd+Shift+Z)"><Icon name="redo" /></button>
-                    <button className="ed-tool-btn" type="button" onClick={openDiscard} aria-label="Discard design" title="Discard design"><Icon name="trash" /></button>
+                    <button className="ed-tool-btn" type="button" onClick={undoDoc} disabled={!canUndo(hist)} aria-label={t("editor.toolbar.undo")} title={t("editor.toolbar.undoTitle")}><Icon name="undo" /></button>
+                    <button className="ed-tool-btn" type="button" onClick={redoDoc} disabled={!canRedo(hist)} aria-label={t("editor.toolbar.redo")} title={t("editor.toolbar.redoTitle")}><Icon name="redo" /></button>
+                    <button className="ed-tool-btn" type="button" onClick={openDiscard} aria-label={t("editor.toolbar.discard")} title={t("editor.toolbar.discard")}><Icon name="trash" /></button>
                     <button ref={exportButtonRef} className="ed-export-btn" type="button" onClick={toggleExport} aria-haspopup="dialog" aria-expanded={exportOpen}>
-                        <Icon name="download" /><span>Export</span><Icon name="chevron-down" />
+                        <Icon name="download" /><span>{t("editor.toolbar.export")}</span><Icon name="chevron-down" />
                     </button>
                 </div>
             </header>
 
             <div className="ed-work" style={workStyle}>
-                <section ref={stageRef} className="ed-stage" aria-label="Canvas workspace">
+                <section ref={stageRef} className="ed-stage" aria-label={t("editor.stage.label")}>
                     <div className={`ed-canvas-frame ${doc.bg.kind === "transparent" ? "is-transparent" : ""}`} style={canvasStyle}>
                         <EditorCanvas doc={doc} sel={sel} svgRef={svgRef} setSel={setSel} begin={begin} live={live} end={end} />
-                        {!doc.items.length && <div className="ed-canvas-empty" data-export-ignore="true"><Icon name="flower" /><strong>Your canvas is ready</strong><span>Add a flower or randomize a composition.</span></div>}
+                        {!doc.items.length && <div className="ed-canvas-empty" data-export-ignore="true"><Icon name="flower" /><strong>{t("editor.canvas.ready")}</strong><span>{t("editor.canvas.readyHint")}</span></div>}
                     </div>
                     <div className="ed-stage-meta" aria-live="polite">
-                        <span>{doc.canvas.w} × {doc.canvas.h}px</span>
-                        <span className={saveOk ? "is-saved" : "is-error"}>{saveOk ? "Saved locally" : "Autosave unavailable"}</span>
+                        <span>{number(doc.canvas.w)} × {number(doc.canvas.h)}px</span>
+                        <span className={saveOk ? "is-saved" : "is-error"}>{t(saveOk ? "editor.status.saved" : "editor.status.autosaveUnavailable")}</span>
                     </div>
                     <div className="ed-warnings">
-                        {stylesMixed(doc) && <div className="ed-warning"><Icon name="warning" />Mixed styles can feel less consistent.</div>}
-                        {overlapHigh(doc) && <div className="ed-warning"><Icon name="warning" />Dense overlap may reduce readability.</div>}
+                        {stylesMixed(doc) && <div className="ed-warning"><Icon name="warning" />{t("editor.warning.mixedStyles")}</div>}
+                        {overlapHigh(doc) && <div className="ed-warning"><Icon name="warning" />{t("editor.warning.denseOverlap")}</div>}
                     </div>
                 </section>
 
                 <div
                     className="ed-resizer"
                     role="separator"
-                    aria-label="Resize control panel"
+                    aria-label={t("editor.panel.resize")}
                     aria-orientation="vertical"
                     aria-valuemin={320}
                     aria-valuemax={560}
@@ -452,37 +473,37 @@ function Editor() {
                     onKeyDown={panelKey}
                 ><span /></div>
 
-                <aside className="ed-panel" aria-label="Editor controls">
+                <aside className="ed-panel" aria-label={t("editor.panel.label")}>
                     <Controls doc={doc} sel={sel} act={act} />
                 </aside>
             </div>
 
             <dialog ref={exportRef} className="ed-export-menu" aria-labelledby="export-title" onClose={() => setExportOpen(false)}>
-                <div className="ed-dialog-head"><div><span className="ed-eyebrow">Download</span><h2 id="export-title">Export artwork</h2></div><button type="button" className="ed-icon-btn" onClick={() => { exportRef.current?.close(); setExportOpen(false) }} aria-label="Close export menu"><Icon name="close" /></button></div>
+                <div className="ed-dialog-head"><div><span className="ed-eyebrow">{t("editor.export.download")}</span><h2 id="export-title">{t("editor.export.title")}</h2></div><button type="button" className="ed-icon-btn" onClick={() => { exportRef.current?.close(); setExportOpen(false) }} aria-label={t("editor.export.close")}><Icon name="close" /></button></div>
                 <button type="button" className="ed-format" onClick={() => download("jpg")} disabled={Boolean(saving)}>
-                    <span className="ed-format-icon is-jpg"><Icon name="file-image" /></span><span><strong>JPG</strong><small>Compact, opaque image for sharing and wallpapers.</small></span><Icon name="chevron-right" />
+                    <span className="ed-format-icon is-jpg"><Icon name="file-image" /></span><span><strong>JPG</strong><small>{t("editor.export.jpgDescription")}</small></span><Icon name="chevron-right" />
                 </button>
                 <button type="button" className="ed-format" onClick={() => download("png")} disabled={Boolean(saving)}>
-                    <span className="ed-format-icon is-png"><Icon name="image" /></span><span><strong>PNG</strong><small>High-quality image with optional transparency.</small></span><Icon name="chevron-right" />
+                    <span className="ed-format-icon is-png"><Icon name="image" /></span><span><strong>PNG</strong><small>{t("editor.export.pngDescription")}</small></span><Icon name="chevron-right" />
                 </button>
                 <button type="button" className="ed-format" onClick={() => download("svg")} disabled={Boolean(saving)}>
-                    <span className="ed-format-icon is-svg"><Icon name="file-code" /></span><span><strong>SVG</strong><small>Scalable vector artwork for editing or the web.</small></span><Icon name="chevron-right" />
+                    <span className="ed-format-icon is-svg"><Icon name="file-code" /></span><span><strong>SVG</strong><small>{t("editor.export.svgDescription")}</small></span><Icon name="chevron-right" />
                 </button>
-                <label className="ed-matte"><span>JPG transparency matte</span><span><input type="color" value={matte} onChange={(event) => setMatte(event.target.value)} /><code>{matte.toUpperCase()}</code></span></label>
-                {saving && <p className="ed-export-status" role="status">Preparing {saving.toUpperCase()}…</p>}
+                <label className="ed-matte"><span>{t("editor.export.matte")}</span><span><input type="color" value={matte} onChange={(event) => setMatte(event.target.value)} /><code>{matte.toUpperCase()}</code></span></label>
+                {saving && <p className="ed-export-status" role="status">{t("editor.export.preparing", { format: saving.toUpperCase() })}</p>}
             </dialog>
 
             <dialog ref={discardRef} className="ed-confirm" aria-labelledby="discard-title">
                 <div className="ed-confirm-icon"><Icon name="trash" /></div>
-                <h2 id="discard-title">Discard this design?</h2>
-                <p>All flowers and canvas changes in the current design will be removed. This cannot be undone.</p>
+                <h2 id="discard-title">{t("editor.discard.title")}</h2>
+                <p>{t("editor.discard.description")}</p>
                 <div className="ed-confirm-actions">
-                    <button type="button" className="ed-soft-btn" onClick={() => discardRef.current?.close()}>Cancel</button>
-                    <button type="button" className="ed-danger-btn" onClick={discard}>Discard design</button>
+                    <button type="button" className="ed-soft-btn" onClick={() => discardRef.current?.close()}>{t("editor.discard.cancel")}</button>
+                    <button type="button" className="ed-danger-btn" onClick={discard}>{t("editor.discard.confirm")}</button>
                 </div>
             </dialog>
 
-            <div className={`ed-toast ${toast ? "is-visible" : ""}`} role="status" aria-live="polite"><Icon name="check" />{toast}</div>
+            <div className={`ed-toast ${toast ? "is-visible" : ""}`} role="status" aria-live="polite"><Icon name="check" />{toastText}</div>
         </motion.main>
     )
 }

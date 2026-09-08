@@ -38,6 +38,10 @@
     gap: 7px;
 }
 
+.ed-head .language-trigger {
+    height: 40px;
+}
+
 .ed-tool-btn,
 .ed-icon-btn {
     display: inline-grid;
@@ -656,6 +660,12 @@
     visibility: visible;
 }
 
+@media (max-width: 420px) {
+    .ed-help-popover {
+        width: 150px;
+    }
+}
+
 .ed-range-field input[type="range"] {
     width: 100%;
     height: 5px;
@@ -1269,6 +1279,17 @@
 
     .ed-head-actions {
         gap: 1px;
+    }
+
+    .ed-head .language-trigger {
+        width: 42px;
+        min-width: 42px;
+        padding: 0;
+    }
+
+    .ed-head .language-trigger > span,
+    .ed-head .language-trigger > .icon:last-child {
+        display: none;
     }
 
     .ed-export-btn {

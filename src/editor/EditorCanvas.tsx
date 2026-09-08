@@ -1,7 +1,10 @@
 import { useRef, type PointerEvent as ReactPointerEvent, type RefObject } from "react"
 import { Art } from "./Art"
+import { FLOWER_MAP } from "../flowers"
 import { clampItem } from "./model"
 import type { Doc, FlowerItem } from "./types"
+import { useI18n } from "../i18n"
+import { flowerSpeciesKeys } from "../i18n/catalog"
 
 type Mode = "move" | "size" | "rot"
 
@@ -53,6 +56,7 @@ function groupBox(items: FlowerItem[]) {
 }
 
 export function EditorCanvas({ doc, sel, svgRef, setSel, begin, live, end }: Props) {
+    const { t } = useI18n()
     const drag = useRef<Drag | null>(null)
     const selected = doc.items.filter((item) => sel.includes(item.id) && !item.hidden)
     const single = selected.length === 1 ? selected[0]! : null
@@ -165,13 +169,19 @@ export function EditorCanvas({ doc, sel, svgRef, setSel, begin, live, end }: Pro
             width="100%"
             height="100%"
             role="application"
-            aria-label="Wallpaper canvas. Select flowers to move, resize, or rotate them."
+            aria-label={t("editor.canvas.label")}
             onPointerDown={empty}
             onPointerMove={move}
             onPointerUp={finish}
             onPointerCancel={finish}
         >
-            <Art doc={doc} onItemDown={startMove} />
+            <Art
+                doc={doc}
+                onItemDown={startMove}
+                itemLabel={(item) => t("editor.art.flowerLabel", {
+                    species: t(flowerSpeciesKeys[FLOWER_MAP[item.asset].species]),
+                })}
+            />
 
             <g data-export-ignore="true" className="ed-selection" aria-hidden="true">
                 {single && (

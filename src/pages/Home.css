@@ -116,6 +116,11 @@
   gap: 8px;
 }
 
+.home-header .language-trigger,
+.home-footer .language-trigger {
+  color: inherit;
+}
+
 .home-head-cta {
   display: inline-flex;
   min-height: 42px;
@@ -1850,6 +1855,17 @@
 }
 
 @media (max-width: 390px) {
+  .home-header .language-trigger {
+    width: 40px;
+    min-width: 40px;
+    padding: 0;
+  }
+
+  .home-header .language-trigger > span,
+  .home-header .language-trigger > .icon:last-child {
+    display: none;
+  }
+
   .home-head-cta {
     font-size: 0;
   }
