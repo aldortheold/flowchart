@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Editor from "./pages/Editor"
+import Home from "./pages/Home"
 import { ThemeProvider } from "./theme"
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
         <ThemeProvider>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<div>Home</div>} />
+                    <Route path="/" element={<Home />} />
                     <Route path="/editor" element={<Editor />} />
                 </Routes>
             </BrowserRouter>
