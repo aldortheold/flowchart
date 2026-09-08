@@ -1,0 +1,149 @@
+{
+  "asset_set": "Flowchart remaining flower assets",
+  "version": 1,
+  "generated_assets": 69,
+  "canvas": {
+    "width": 512,
+    "height": 512,
+    "viewBox": "0 0 512 512",
+    "aspect_ratio": "1:1"
+  },
+  "rules": {
+    "transparent_background": true,
+    "top_down_view": true,
+    "stems": false,
+    "leaves": false,
+    "gradients": false,
+    "padding": false,
+    "visible_bounds_touch_all_four_canvas_edges": true
+  },
+  "flowers": [
+    "rose",
+    "daisy",
+    "tulip",
+    "sunflower",
+    "lotus",
+    "orchid",
+    "hibiscus",
+    "poppy",
+    "peony",
+    "chrysanthemum",
+    "dahlia",
+    "camellia",
+    "anemone",
+    "narcissus",
+    "forget-me-not"
+  ],
+  "added_flower_types": [
+    "sunflower",
+    "lotus",
+    "orchid",
+    "hibiscus",
+    "poppy",
+    "peony",
+    "chrysanthemum",
+    "dahlia",
+    "camellia",
+    "anemone",
+    "narcissus",
+    "forget-me-not"
+  ],
+  "styles": {
+    "botanical": {
+      "count": 12,
+      "excludes_existing": [
+        "rose",
+        "daisy",
+        "tulip"
+      ]
+    },
+    "minimal": {
+      "count": 12,
+      "excludes_existing": [
+        "rose",
+        "daisy",
+        "tulip"
+      ]
+    },
+    "line-art": {
+      "count": 15
+    },
+    "origami": {
+      "count": 15
+    },
+    "retro": {
+      "count": 15
+    }
+  },
+  "files": [
+    "botanical/flowchart-botanical-sunflower-v1.svg",
+    "botanical/flowchart-botanical-lotus-v1.svg",
+    "botanical/flowchart-botanical-orchid-v1.svg",
+    "botanical/flowchart-botanical-hibiscus-v1.svg",
+    "botanical/flowchart-botanical-poppy-v1.svg",
+    "botanical/flowchart-botanical-peony-v1.svg",
+    "botanical/flowchart-botanical-chrysanthemum-v1.svg",
+    "botanical/flowchart-botanical-dahlia-v1.svg",
+    "botanical/flowchart-botanical-camellia-v1.svg",
+    "botanical/flowchart-botanical-anemone-v1.svg",
+    "botanical/flowchart-botanical-narcissus-v1.svg",
+    "botanical/flowchart-botanical-forget-me-not-v1.svg",
+    "minimal/flowchart-minimal-sunflower-v1.svg",
+    "minimal/flowchart-minimal-lotus-v1.svg",
+    "minimal/flowchart-minimal-orchid-v1.svg",
+    "minimal/flowchart-minimal-hibiscus-v1.svg",
+    "minimal/flowchart-minimal-poppy-v1.svg",
+    "minimal/flowchart-minimal-peony-v1.svg",
+    "minimal/flowchart-minimal-chrysanthemum-v1.svg",
+    "minimal/flowchart-minimal-dahlia-v1.svg",
+    "minimal/flowchart-minimal-camellia-v1.svg",
+    "minimal/flowchart-minimal-anemone-v1.svg",
+    "minimal/flowchart-minimal-narcissus-v1.svg",
+    "minimal/flowchart-minimal-forget-me-not-v1.svg",
+    "line-art/flowchart-line-art-rose-v1.svg",
+    "line-art/flowchart-line-art-daisy-v1.svg",
+    "line-art/flowchart-line-art-tulip-v1.svg",
+    "line-art/flowchart-line-art-sunflower-v1.svg",
+    "line-art/flowchart-line-art-lotus-v1.svg",
+    "line-art/flowchart-line-art-orchid-v1.svg",
+    "line-art/flowchart-line-art-hibiscus-v1.svg",
+    "line-art/flowchart-line-art-poppy-v1.svg",
+    "line-art/flowchart-line-art-peony-v1.svg",
+    "line-art/flowchart-line-art-chrysanthemum-v1.svg",
+    "line-art/flowchart-line-art-dahlia-v1.svg",
+    "line-art/flowchart-line-art-camellia-v1.svg",
+    "line-art/flowchart-line-art-anemone-v1.svg",
+    "line-art/flowchart-line-art-narcissus-v1.svg",
+    "line-art/flowchart-line-art-forget-me-not-v1.svg",
+    "origami/flowchart-origami-rose-v1.svg",
+    "origami/flowchart-origami-daisy-v1.svg",
+    "origami/flowchart-origami-tulip-v1.svg",
+    "origami/flowchart-origami-sunflower-v1.svg",
+    "origami/flowchart-origami-lotus-v1.svg",
+    "origami/flowchart-origami-orchid-v1.svg",
+    "origami/flowchart-origami-hibiscus-v1.svg",
+    "origami/flowchart-origami-poppy-v1.svg",
+    "origami/flowchart-origami-peony-v1.svg",
+    "origami/flowchart-origami-chrysanthemum-v1.svg",
+    "origami/flowchart-origami-dahlia-v1.svg",
+    "origami/flowchart-origami-camellia-v1.svg",
+    "origami/flowchart-origami-anemone-v1.svg",
+    "origami/flowchart-origami-narcissus-v1.svg",
+    "origami/flowchart-origami-forget-me-not-v1.svg",
+    "retro/flowchart-retro-rose-v1.svg",
+    "retro/flowchart-retro-daisy-v1.svg",
+    "retro/flowchart-retro-tulip-v1.svg",
+    "retro/flowchart-retro-sunflower-v1.svg",
+    "retro/flowchart-retro-lotus-v1.svg",
+    "retro/flowchart-retro-orchid-v1.svg",
+    "retro/flowchart-retro-hibiscus-v1.svg",
+    "retro/flowchart-retro-poppy-v1.svg",
+    "retro/flowchart-retro-peony-v1.svg",
+    "retro/flowchart-retro-chrysanthemum-v1.svg",
+    "retro/flowchart-retro-dahlia-v1.svg",
+    "retro/flowchart-retro-camellia-v1.svg",
+    "retro/flowchart-retro-anemone-v1.svg",
+    "retro/flowchart-retro-narcissus-v1.svg",
+    "retro/flowchart-retro-forget-me-not-v1.svg"
+  ]
+}

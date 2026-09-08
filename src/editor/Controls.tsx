@@ -1,5 +1,13 @@
 import { useState, type ReactNode } from "react"
-import { FlowerArt, FLOWERS, FLOWER_MAP } from "../flowers"
+import {
+    FlowerArt,
+    FLOWERS,
+    FLOWER_MAP,
+    FLOWER_SPECIES,
+    FLOWER_SPECIES_NAMES,
+    FLOWER_STYLES,
+    FLOWER_STYLE_DETAILS,
+} from "../flowers"
 import type { FlowerId, FlowerSpecies, FlowerStyle } from "../flowers"
 import { Icon, type IconName } from "../components/Icons"
 import { MAX_PIXELS, MAX_SIDE, MIN_SIDE, clampItem, resizeDoc, sizeError } from "./model"
@@ -179,17 +187,17 @@ function Selected({ doc, sel, act }: Props) {
             <div className="ed-inspector-head">
                 <div>
                     <span className="ed-eyebrow">Selected flower</span>
-                    <h2>{flower.name} <small>{flower.style}</small></h2>
+                    <h2>{flower.name} <small>{FLOWER_STYLE_DETAILS[flower.style].label}</small></h2>
                 </div>
                 <IconButton icon="close" label="Deselect flower" onClick={() => act.select([])} />
             </div>
 
             <div className="ed-select-grid">
                 <label><span>Species</span><select value={flower.species} onChange={(event) => setSpecies(event.target.value as FlowerSpecies)}>
-                    <option value="rose">Rose</option><option value="tulip">Tulip</option><option value="daisy">Daisy</option>
+                    {FLOWER_SPECIES.map((species) => <option value={species} key={species}>{FLOWER_SPECIES_NAMES[species]}</option>)}
                 </select></label>
                 <label><span>Style</span><select value={flower.style} onChange={(event) => setStyle(event.target.value as FlowerStyle)}>
-                    <option value="botanical">Botanical</option><option value="minimal">Minimal</option>
+                    {FLOWER_STYLES.map((style) => <option value={style} key={style}>{FLOWER_STYLE_DETAILS[style].label}</option>)}
                 </select></label>
             </div>
 
@@ -237,9 +245,9 @@ function Selected({ doc, sel, act }: Props) {
 function Flowers({ act }: Pick<Props, "act">) {
     return (
         <Section icon="flower" title="Flowers" open>
-            {(["botanical", "minimal"] as FlowerStyle[]).map((style) => (
+            {FLOWER_STYLES.map((style) => (
                 <div className="ed-flower-group" key={style}>
-                    <div className="ed-group-heading"><h3>{style}</h3><span>{style === "botanical" ? "Layered & organic" : "Bold & simple"}</span></div>
+                    <div className="ed-group-heading"><h3>{FLOWER_STYLE_DETAILS[style].label}</h3><span>{FLOWER_STYLE_DETAILS[style].description}</span></div>
                     <div className="ed-flower-grid">
                         {FLOWERS.filter((flower) => flower.style === style).map((flower) => (
                             <button key={flower.id} className="ed-flower-card" type="button" onClick={() => act.add(flower.id)} aria-label={`Add ${style} ${flower.name}`}>

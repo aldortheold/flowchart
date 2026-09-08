@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="512"
+     height="512"
+     viewBox="0 0 512 512"
+     data-asset-version="1"
+     data-style="minimal"
+     data-flower="lotus"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">Minimal lotus</title>
+  <desc id="desc">A simplified, directly overhead lotus bloom made from a small set of flat colored shapes, with no stem, leaves, gradient, or margin.</desc>
+
+  <defs>
+    <path id="outer-petal" d="M 0 74 C -42.24 58 -88 -74.24 -77.44 -136.88 C -63.36 -180.96 -17.6 -222.72 0 -232 C 17.6 -222.72 63.36 -180.96 77.44 -136.88 C 88 -74.24 42.24 58 0 74 Z"/>
+    <path id="inner-petal" d="M 0 58 C -29.76 42 -62 -49.92 -54.56 -92.04 C -44.64 -121.68 -12.4 -149.76 0 -156 C 12.4 -149.76 44.64 -121.68 54.56 -92.04 C 62 -49.92 29.76 42 0 58 Z"/>
+  </defs>
+
+  <g id="flower-art" transform="matrix(1.103448 0 0 1.103448 -26.482759 -26.482759)">
+    <g>
+      <use href="#outer-petal" xlink:href="#outer-petal" x="256" y="256" fill="#ffd0dc" transform="rotate(0 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#outer-petal" xlink:href="#outer-petal" x="256" y="256" fill="#f49ab4" transform="rotate(45 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#outer-petal" xlink:href="#outer-petal" x="256" y="256" fill="#f6adc1" transform="rotate(90 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#outer-petal" xlink:href="#outer-petal" x="256" y="256" fill="#df6f99" transform="rotate(135 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#outer-petal" xlink:href="#outer-petal" x="256" y="256" fill="#ffd0dc" transform="rotate(180 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#outer-petal" xlink:href="#outer-petal" x="256" y="256" fill="#f49ab4" transform="rotate(225 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#outer-petal" xlink:href="#outer-petal" x="256" y="256" fill="#f6adc1" transform="rotate(270 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#outer-petal" xlink:href="#outer-petal" x="256" y="256" fill="#df6f99" transform="rotate(315 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+    </g>
+    <g>
+      <use href="#inner-petal" xlink:href="#inner-petal" x="256" y="256" fill="#f49ab4" transform="rotate(22.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#inner-petal" xlink:href="#inner-petal" x="256" y="256" fill="#df6f99" transform="rotate(67.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#inner-petal" xlink:href="#inner-petal" x="256" y="256" fill="#ee88a8" transform="rotate(112.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#inner-petal" xlink:href="#inner-petal" x="256" y="256" fill="#f49ab4" transform="rotate(157.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#inner-petal" xlink:href="#inner-petal" x="256" y="256" fill="#df6f99" transform="rotate(202.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#inner-petal" xlink:href="#inner-petal" x="256" y="256" fill="#ee88a8" transform="rotate(247.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#inner-petal" xlink:href="#inner-petal" x="256" y="256" fill="#f49ab4" transform="rotate(292.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#inner-petal" xlink:href="#inner-petal" x="256" y="256" fill="#df6f99" transform="rotate(337.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+    </g>
+    <circle cx="256" cy="256" r="42" fill="#f2c657"/>
+    <circle cx="246" cy="243" r="14" fill="#ffe28a"/>
+  </g>
+</svg>

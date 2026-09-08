@@ -1,0 +1,99 @@
+import { useId } from "react";
+import { scaleFlower } from "../scaleFlower";
+import { resolveColors } from "../../flowers/palettes";
+import type { FlowerProps } from "../../flowers/types";
+
+const NEW_VIEWBOX = scaleFlower([
+    15.750095959203,
+    15.750095959203,
+    496.249965980234,
+    496.249965980234,
+]);
+
+function Chrysanthemum({ colors }: FlowerProps) {
+    const outerPetalId = useId();
+    const middlePetalId = useId();
+    const innerPetalId = useId();
+    const c = resolveColors("line-art-chrysanthemum", colors);
+
+    return (
+        <>
+            <defs>
+                <path id={outerPetalId} d="M 0 73 C -5.75 61 -23.46 -80.92 -22.54 -147.56 C -18.63 -199.92 -4.6 -235.62 1.38 -238 C 5.98 -221.34 15.64 -176.12 14.26 -123.76 C 16.56 -57.12 5.75 61 0 73 Z"/>
+                <path id={middlePetalId} d="M 0 59 C -5 47 -15.6 -60.52 -13.2 -110.36 C -11 -149.52 -4 -176.22 -1.2 -178 C 7.6 -165.54 16.8 -131.72 17.2 -92.56 C 14.4 -42.72 5 47 0 59 Z"/>
+                <path id={innerPetalId} d="M 0 44 C -4.5 32 -18.36 -38.08 -17.64 -69.44 C -14.58 -94.08 -3.6 -110.88 1.08 -112 C 4.68 -104.16 12.24 -82.88 11.16 -58.24 C 12.96 -26.88 4.5 32 0 44 Z"/>
+              </defs>
+            <g transform={NEW_VIEWBOX}>
+                <g>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(0 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(15 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(30 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(45 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(60 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(75 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(90 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(105 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(120 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(135 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(150 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(165 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(180 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(195 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(210 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(225 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(240 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(255 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(270 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(285 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(300 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(315 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(330 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${outerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="4.5" strokeLinejoin="round" transform="rotate(345 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                    </g>
+                    <g>
+                      <use href={`#${middlePetalId}`} x="256" y="256" fill="none" stroke={c[1]} strokeWidth="4" strokeLinejoin="round" transform="rotate(9 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${middlePetalId}`} x="256" y="256" fill="none" stroke={c[1]} strokeWidth="4" strokeLinejoin="round" transform="rotate(27 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${middlePetalId}`} x="256" y="256" fill="none" stroke={c[1]} strokeWidth="4" strokeLinejoin="round" transform="rotate(45 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${middlePetalId}`} x="256" y="256" fill="none" stroke={c[1]} strokeWidth="4" strokeLinejoin="round" transform="rotate(63 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${middlePetalId}`} x="256" y="256" fill="none" stroke={c[1]} strokeWidth="4" strokeLinejoin="round" transform="rotate(81 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${middlePetalId}`} x="256" y="256" fill="none" stroke={c[1]} strokeWidth="4" strokeLinejoin="round" transform="rotate(99 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${middlePetalId}`} x="256" y="256" fill="none" stroke={c[1]} strokeWidth="4" strokeLinejoin="round" transform="rotate(117 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${middlePetalId}`} x="256" y="256" fill="none" stroke={c[1]} strokeWidth="4" strokeLinejoin="round" transform="rotate(135 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${middlePetalId}`} x="256" y="256" fill="none" stroke={c[1]} strokeWidth="4" strokeLinejoin="round" transform="rotate(153 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${middlePetalId}`} x="256" y="256" fill="none" stroke={c[1]} strokeWidth="4" strokeLinejoin="round" transform="rotate(171 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${middlePetalId}`} x="256" y="256" fill="none" stroke={c[1]} strokeWidth="4" strokeLinejoin="round" transform="rotate(189 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${middlePetalId}`} x="256" y="256" fill="none" stroke={c[1]} strokeWidth="4" strokeLinejoin="round" transform="rotate(207 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${middlePetalId}`} x="256" y="256" fill="none" stroke={c[1]} strokeWidth="4" strokeLinejoin="round" transform="rotate(225 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${middlePetalId}`} x="256" y="256" fill="none" stroke={c[1]} strokeWidth="4" strokeLinejoin="round" transform="rotate(243 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${middlePetalId}`} x="256" y="256" fill="none" stroke={c[1]} strokeWidth="4" strokeLinejoin="round" transform="rotate(261 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${middlePetalId}`} x="256" y="256" fill="none" stroke={c[1]} strokeWidth="4" strokeLinejoin="round" transform="rotate(279 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${middlePetalId}`} x="256" y="256" fill="none" stroke={c[1]} strokeWidth="4" strokeLinejoin="round" transform="rotate(297 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${middlePetalId}`} x="256" y="256" fill="none" stroke={c[1]} strokeWidth="4" strokeLinejoin="round" transform="rotate(315 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${middlePetalId}`} x="256" y="256" fill="none" stroke={c[1]} strokeWidth="4" strokeLinejoin="round" transform="rotate(333 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${middlePetalId}`} x="256" y="256" fill="none" stroke={c[1]} strokeWidth="4" strokeLinejoin="round" transform="rotate(351 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                    </g>
+                    <g>
+                      <use href={`#${innerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="3.5" strokeLinejoin="round" transform="rotate(4 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${innerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="3.5" strokeLinejoin="round" transform="rotate(26.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${innerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="3.5" strokeLinejoin="round" transform="rotate(49 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${innerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="3.5" strokeLinejoin="round" transform="rotate(71.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${innerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="3.5" strokeLinejoin="round" transform="rotate(94 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${innerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="3.5" strokeLinejoin="round" transform="rotate(116.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${innerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="3.5" strokeLinejoin="round" transform="rotate(139 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${innerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="3.5" strokeLinejoin="round" transform="rotate(161.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${innerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="3.5" strokeLinejoin="round" transform="rotate(184 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${innerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="3.5" strokeLinejoin="round" transform="rotate(206.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${innerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="3.5" strokeLinejoin="round" transform="rotate(229 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${innerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="3.5" strokeLinejoin="round" transform="rotate(251.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${innerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="3.5" strokeLinejoin="round" transform="rotate(274 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${innerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="3.5" strokeLinejoin="round" transform="rotate(296.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${innerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="3.5" strokeLinejoin="round" transform="rotate(319 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${innerPetalId}`} x="256" y="256" fill="none" stroke={c[0]} strokeWidth="3.5" strokeLinejoin="round" transform="rotate(341.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                    </g>
+                    <circle cx="256" cy="256" r="42" fill="none" stroke={c[0]} strokeWidth="5"/>
+            </g>
+        </>
+    );
+}
+
+export default Chrysanthemum;

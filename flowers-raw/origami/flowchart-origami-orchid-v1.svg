@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="512"
+     height="512"
+     viewBox="0 0 512 512"
+     data-asset-version="1"
+     data-style="origami"
+     data-flower="orchid"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">Origami orchid</title>
+  <desc id="desc">A directly overhead orchid constructed from crisp, flat origami facets, with no stem, leaves, gradient, or surrounding margin.</desc>
+
+  <g id="flower-art" transform="matrix(1.200131 0 0 1.207547 -51.233364 -47.09434)">
+    <g transform="translate(256 256)">
+      <g transform="rotate(0) scale(1)">
+        <polygon points="0,48 -74,-115.01 0,-217" fill="#f4d4f0"/>
+        <polygon points="0,48 0,-217 74,-115.01" fill="#bd67bc"/>
+        <polygon points="-74,-115.01 0,-91.14 74,-115.01" fill="#763f86" opacity="0.88"/>
+      </g>
+      <g transform="rotate(120) scale(1)">
+        <polygon points="0,48 -74,-115.01 0,-217" fill="#763f86"/>
+        <polygon points="0,48 0,-217 74,-115.01" fill="#f4d4f0"/>
+        <polygon points="-74,-115.01 0,-91.14 74,-115.01" fill="#bd67bc" opacity="0.88"/>
+      </g>
+      <g transform="rotate(240) scale(1)">
+        <polygon points="0,48 -74,-115.01 0,-217" fill="#bd67bc"/>
+        <polygon points="0,48 0,-217 74,-115.01" fill="#763f86"/>
+        <polygon points="-74,-115.01 0,-91.14 74,-115.01" fill="#f4d4f0" opacity="0.88"/>
+      </g>
+    </g>
+    <g transform="translate(256 256)">
+      <g transform="rotate(70)">
+        <polygon points="0,44 -108,-120.31 0,-227" fill="#f4d4f0"/>
+        <polygon points="0,44 0,-227 108,-120.31" fill="#dc9bd8"/>
+        <polygon points="-108,-120.31 0,-95.34 108,-120.31" fill="#bd67bc" opacity="0.88"/>
+      </g>
+      <g transform="rotate(290)">
+        <polygon points="0,44 -108,-120.31 0,-227" fill="#dc9bd8"/>
+        <polygon points="0,44 0,-227 108,-120.31" fill="#763f86"/>
+        <polygon points="-108,-120.31 0,-95.34 108,-120.31" fill="#f4d4f0" opacity="0.88"/>
+      </g>
+      <g transform="rotate(180)">
+        <polygon points="0,40 -102,-109.71 0,-207" fill="#763f86"/>
+        <polygon points="0,40 0,-207 102,-109.71" fill="#bd67bc"/>
+        <polygon points="-102,-109.71 0,-86.94 102,-109.71" fill="#f4d4f0" opacity="0.88"/>
+      </g>
+    </g>
+    <g>
+      <polygon points="256,269 256,232 288.043,250.5" fill="#f0b64b"/>
+      <polygon points="256,269 288.043,250.5 288.043,287.5" fill="#f8d26c"/>
+      <polygon points="256,269 288.043,287.5 256,306" fill="#50305f"/>
+      <polygon points="256,269 256,306 223.957,287.5" fill="#f0b64b"/>
+      <polygon points="256,269 223.957,287.5 223.957,250.5" fill="#f8d26c"/>
+      <polygon points="256,269 223.957,250.5 256,232" fill="#50305f"/>
+    </g>
+  </g>
+</svg>

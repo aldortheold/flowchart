@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="512"
+     height="512"
+     viewBox="0 0 512 512"
+     data-asset-version="1"
+     data-style="botanical"
+     data-flower="forget-me-not"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">Botanical forget-me-not</title>
+  <desc id="desc">A detailed, directly overhead forget-me-not bloom built from layered flat colors, with no stem, leaves, gradient, or surrounding margin.</desc>
+
+  <defs>
+    <path id="petal" d="M 0 67 C -55.2 57 -115 -65.54 -115 -126.56 C -115 -185.32 -59.8 -221.48 -20.7 -207.92 C -9.2 -189.84 -6.9 -185.32 0 -171.76 C 6.9 -185.32 9.2 -189.84 20.7 -207.92 C 59.8 -221.48 115 -185.32 115 -126.56 C 115 -65.54 55.2 57 0 67 Z"/>
+  </defs>
+
+  <g id="flower-art" transform="matrix(1.179468 0 0 1.218934 -45.943701 -53.039372)">
+    <g>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#b9dcf4" stroke="#2f689b" stroke-width="3.4" stroke-linejoin="round" transform="rotate(0 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#71b3e1" stroke="#2f689b" stroke-width="3.4" stroke-linejoin="round" transform="rotate(72 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#8bc5e9" stroke="#2f689b" stroke-width="3.4" stroke-linejoin="round" transform="rotate(144 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#448fc8" stroke="#2f689b" stroke-width="3.4" stroke-linejoin="round" transform="rotate(216 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#69a9d8" stroke="#2f689b" stroke-width="3.4" stroke-linejoin="round" transform="rotate(288 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+    </g>
+    <g transform="translate(256 256)">
+      <path d="M 0 -54 C 0 -82.32 0 -152.88 0 -196" fill="none" stroke="#d8f0ff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.72" transform="rotate(0) scale(1)"/>
+      <path d="M 0 -54 C 0 -82.32 0 -152.88 0 -196" fill="none" stroke="#d8f0ff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.72" transform="rotate(72) scale(1)"/>
+      <path d="M 0 -54 C 0 -82.32 0 -152.88 0 -196" fill="none" stroke="#d8f0ff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.72" transform="rotate(144) scale(1)"/>
+      <path d="M 0 -54 C 0 -82.32 0 -152.88 0 -196" fill="none" stroke="#d8f0ff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.72" transform="rotate(216) scale(1)"/>
+      <path d="M 0 -54 C 0 -82.32 0 -152.88 0 -196" fill="none" stroke="#d8f0ff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.72" transform="rotate(288) scale(1)"/>
+    </g>
+    <path d="M 256 177 L 280.687 222.021 L 331.133 231.588 L 295.944 268.979 L 302.435 319.912 L 256 298 L 209.565 319.912 L 216.056 268.979 L 180.867 231.588 L 231.313 222.021 Z" fill="#edf7ff"/>
+    <circle cx="256" cy="256" r="51" fill="#f1c845" stroke="#b78929" stroke-width="4"/>
+    <circle cx="256" cy="229" r="8" fill="#fff4b5"/>
+    <circle cx="281.679" cy="247.657" r="8" fill="#fff4b5"/>
+    <circle cx="271.87" cy="277.843" r="8" fill="#fff4b5"/>
+    <circle cx="240.13" cy="277.843" r="8" fill="#fff4b5"/>
+    <circle cx="230.321" cy="247.657" r="8" fill="#fff4b5"/>
+    <circle cx="256" cy="256" r="13" fill="#d6962e"/>
+  </g>
+</svg>

@@ -1,0 +1,41 @@
+import { useId } from "react";
+import { scaleFlower } from "../scaleFlower";
+import { resolveColors } from "../../flowers/palettes";
+import type { FlowerProps } from "../../flowers/types";
+
+const NEW_VIEWBOX = scaleFlower([
+    33.000001742188,
+    33.000001742188,
+    479.000026132814,
+    479.000026132814,
+]);
+
+function Camellia({ colors }: FlowerProps) {
+    const petalId = useId();
+    const c = resolveColors("minimal-camellia", colors);
+
+    return (
+        <>
+            <defs>
+                <path id={petalId} d="M 0 72 C -34.56 62 -94.08 -57.98 -96 -120.42 C -97.92 -178.4 -46.08 -223 0 -223 C 46.08 -223 97.92 -178.4 96 -120.42 C 94.08 -57.98 34.56 62 0 72 Z"/>
+              </defs>
+            <g transform={NEW_VIEWBOX}>
+                <g>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[0]} transform="rotate(0 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[1]} transform="rotate(45 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[2]} transform="rotate(90 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[3]} transform="rotate(135 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[0]} transform="rotate(180 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[1]} transform="rotate(225 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[2]} transform="rotate(270 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[3]} transform="rotate(315 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                    </g>
+                    <path d="M 302.106 147.38 C 310.358 150.79 308.699 187.04 317.122 195.935 C 325.546 204.831 360.585 204.161 363.74 212.47 C 366.895 220.78 339.892 244.401 340.21 256.735 C 340.528 269.069 369.71 294.816 366.067 302.721 C 362.425 310.625 322.537 305.95 313.557 314.571 C 304.578 323.192 308.33 362.13 300.362 365.801 C 292.394 369.471 267.515 341.835 255.254 341.429 C 242.994 341.023 218.801 366.399 210.653 362.831 C 202.505 359.262 204.554 323.812 195.638 315.318 C 186.721 306.824 148.369 308.886 145.41 300.681 C 142.451 292.477 173.821 267.736 173.986 255.284 C 174.151 242.832 143.561 217.768 146.618 209.57 C 149.674 201.372 187.34 203.654 196.35 195.3 C 205.36 186.946 204.292 151.769 212.545 148.446 C 220.799 145.123 244.502 171.131 256.742 170.985 C 268.982 170.84 293.854 143.971 302.106 147.38 Z" fill={c[3]}/>
+                    <circle cx="256" cy="256" r="48" fill={c[4]}/>
+                    <circle cx="241" cy="240" r="17" fill={c[5]}/>
+            </g>
+        </>
+    );
+}
+
+export default Camellia;

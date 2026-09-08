@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="512"
+     height="512"
+     viewBox="0 0 512 512"
+     data-asset-version="1"
+     data-style="botanical"
+     data-flower="hibiscus"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">Botanical hibiscus</title>
+  <desc id="desc">A detailed, directly overhead hibiscus bloom built from layered flat colors, with no stem, leaves, gradient, or surrounding margin.</desc>
+
+  <defs>
+    <path id="petal" d="M 0 68 C -48.72 60 -102.08 -57.25 -111.36 -105.34 C -129.92 -132.82 -104.4 -162.59 -81.2 -171.75 C -84.68 -208.39 -44.08 -233.58 -16.24 -212.97 C -5.8 -238.16 5.8 -238.16 16.24 -212.97 C 44.08 -233.58 84.68 -208.39 81.2 -171.75 C 104.4 -162.59 129.92 -132.82 111.36 -105.34 C 102.08 -57.25 48.72 60 0 68 Z"/>
+  </defs>
+
+  <g id="flower-art" transform="matrix(1.137583 0 0 1.153584 -35.22128 -25.883551)">
+    <g>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#ff9b87" stroke="#8e2944" stroke-width="3.4" stroke-linejoin="round" transform="rotate(0 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#ed665f" stroke="#8e2944" stroke-width="3.4" stroke-linejoin="round" transform="rotate(72 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#f0796c" stroke="#8e2944" stroke-width="3.4" stroke-linejoin="round" transform="rotate(144 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#cf4454" stroke="#8e2944" stroke-width="3.4" stroke-linejoin="round" transform="rotate(216 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#e85b5a" stroke="#8e2944" stroke-width="3.4" stroke-linejoin="round" transform="rotate(288 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+    </g>
+    <g transform="translate(256 256)">
+      <path d="M 0 -38 C -8 -85.26 -8 -158.34 0 -203" fill="none" stroke="#ffc2ac" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" transform="rotate(0) scale(1)"/>
+      <path d="M 0 -38 C -8 -85.26 -8 -158.34 0 -203" fill="none" stroke="#ffc2ac" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" transform="rotate(72) scale(1)"/>
+      <path d="M 0 -38 C -8 -85.26 -8 -158.34 0 -203" fill="none" stroke="#ffc2ac" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" transform="rotate(144) scale(1)"/>
+      <path d="M 0 -38 C -8 -85.26 -8 -158.34 0 -203" fill="none" stroke="#ffc2ac" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" transform="rotate(216) scale(1)"/>
+      <path d="M 0 -38 C -8 -85.26 -8 -158.34 0 -203" fill="none" stroke="#ffc2ac" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" transform="rotate(288) scale(1)"/>
+    </g>
+    <g transform="translate(256 256)">
+      <path d="M 0 -42 C 20 -64.68 20 -120.12 0 -154" fill="none" stroke="#8e2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.45" transform="rotate(2.8) scale(1)"/>
+      <path d="M 0 -42 C 20 -64.68 20 -120.12 0 -154" fill="none" stroke="#8e2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.45" transform="rotate(74.8) scale(1)"/>
+      <path d="M 0 -42 C 20 -64.68 20 -120.12 0 -154" fill="none" stroke="#8e2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.45" transform="rotate(146.8) scale(1)"/>
+      <path d="M 0 -42 C 20 -64.68 20 -120.12 0 -154" fill="none" stroke="#8e2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.45" transform="rotate(218.8) scale(1)"/>
+      <path d="M 0 -42 C 20 -64.68 20 -120.12 0 -154" fill="none" stroke="#8e2944" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.45" transform="rotate(290.8) scale(1)"/>
+    </g>
+    <path d="M 256 168 L 278.336 225.257 L 339.693 228.807 L 292.14 267.743 L 307.725 327.193 L 256 294 L 204.275 327.193 L 219.86 267.743 L 172.307 228.807 L 233.664 225.257 Z" fill="#8e2944" opacity="0.72"/>
+    <circle cx="256" cy="256" r="40" fill="#5f2438"/>
+    <circle cx="256" cy="201" r="7.5" fill="#f3c24f"/>
+    <circle cx="288.328" cy="211.504" r="6" fill="#ffe082"/>
+    <circle cx="308.308" cy="239.004" r="7.5" fill="#f3c24f"/>
+    <circle cx="308.308" cy="272.996" r="6" fill="#ffe082"/>
+    <circle cx="288.328" cy="300.496" r="7.5" fill="#f3c24f"/>
+    <circle cx="256" cy="311" r="6" fill="#ffe082"/>
+    <circle cx="223.672" cy="300.496" r="7.5" fill="#f3c24f"/>
+    <circle cx="203.692" cy="272.996" r="6" fill="#ffe082"/>
+    <circle cx="203.692" cy="239.004" r="7.5" fill="#f3c24f"/>
+    <circle cx="223.672" cy="211.504" r="6" fill="#ffe082"/>
+    <circle cx="256" cy="256" r="15" fill="#f3c24f"/>
+  </g>
+</svg>

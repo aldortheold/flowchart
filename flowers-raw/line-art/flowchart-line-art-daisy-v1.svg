@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="512"
+     height="512"
+     viewBox="0 0 512 512"
+     data-asset-version="1"
+     data-style="line-art"
+     data-flower="daisy"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">Line Art daisy</title>
+  <desc id="desc">A directly overhead daisy rendered as clean single-color botanical line art, with no stem, leaves, fill, gradient, or margin.</desc>
+
+  <defs>
+    <path id="petal" d="M 0 76 C -18.72 66 -50.96 -59.54 -52 -123.66 C -53.04 -183.2 -24.96 -229 0 -229 C 24.96 -229 53.04 -183.2 52 -123.66 C 50.96 -59.54 18.72 66 0 76 Z"/>
+  </defs>
+
+  <g id="flower-art" transform="matrix(1.103448 0 0 1.103448 -26.482759 -26.482759)">
+    <g>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="none" stroke="#43323d" stroke-width="6" stroke-linejoin="round" transform="rotate(0 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="none" stroke="#43323d" stroke-width="6" stroke-linejoin="round" transform="rotate(45 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="none" stroke="#43323d" stroke-width="6" stroke-linejoin="round" transform="rotate(90 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="none" stroke="#43323d" stroke-width="6" stroke-linejoin="round" transform="rotate(135 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="none" stroke="#43323d" stroke-width="6" stroke-linejoin="round" transform="rotate(180 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="none" stroke="#43323d" stroke-width="6" stroke-linejoin="round" transform="rotate(225 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="none" stroke="#43323d" stroke-width="6" stroke-linejoin="round" transform="rotate(270 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="none" stroke="#43323d" stroke-width="6" stroke-linejoin="round" transform="rotate(315 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+    </g>
+    <g transform="translate(256 256)">
+      <path d="M 0 -78 C 0 -84.84 0 -157.56 0 -202" fill="none" stroke="#745866" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.86" transform="rotate(0) scale(1)"/>
+      <path d="M 0 -78 C 0 -84.84 0 -157.56 0 -202" fill="none" stroke="#745866" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.86" transform="rotate(45) scale(1)"/>
+      <path d="M 0 -78 C 0 -84.84 0 -157.56 0 -202" fill="none" stroke="#745866" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.86" transform="rotate(90) scale(1)"/>
+      <path d="M 0 -78 C 0 -84.84 0 -157.56 0 -202" fill="none" stroke="#745866" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.86" transform="rotate(135) scale(1)"/>
+      <path d="M 0 -78 C 0 -84.84 0 -157.56 0 -202" fill="none" stroke="#745866" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.86" transform="rotate(180) scale(1)"/>
+      <path d="M 0 -78 C 0 -84.84 0 -157.56 0 -202" fill="none" stroke="#745866" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.86" transform="rotate(225) scale(1)"/>
+      <path d="M 0 -78 C 0 -84.84 0 -157.56 0 -202" fill="none" stroke="#745866" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.86" transform="rotate(270) scale(1)"/>
+      <path d="M 0 -78 C 0 -84.84 0 -157.56 0 -202" fill="none" stroke="#745866" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.86" transform="rotate(315) scale(1)"/>
+    </g>
+    <circle cx="256" cy="256" r="89" fill="none" stroke="#43323d" stroke-width="7"/>
+    <circle cx="256" cy="256" r="64" fill="none" stroke="#745866" stroke-width="4"/>
+    <circle cx="256" cy="210" r="4" fill="#43323d"/>
+    <circle cx="279" cy="216.163" r="4" fill="#43323d"/>
+    <circle cx="295.837" cy="233" r="4" fill="#43323d"/>
+    <circle cx="302" cy="256" r="4" fill="#43323d"/>
+    <circle cx="295.837" cy="279" r="4" fill="#43323d"/>
+    <circle cx="279" cy="295.837" r="4" fill="#43323d"/>
+    <circle cx="256" cy="302" r="4" fill="#43323d"/>
+    <circle cx="233" cy="295.837" r="4" fill="#43323d"/>
+    <circle cx="216.163" cy="279" r="4" fill="#43323d"/>
+    <circle cx="210" cy="256" r="4" fill="#43323d"/>
+    <circle cx="216.163" cy="233" r="4" fill="#43323d"/>
+    <circle cx="233" cy="216.163" r="4" fill="#43323d"/>
+  </g>
+</svg>

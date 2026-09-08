@@ -1,4 +1,5 @@
-import type { FlowerId } from "./types"
+import { GENERATED_FLOWER_PALETTES, GENERATED_FLOWER_SLOTS } from "./generatedFlowerData";
+import type { FlowerId } from "./types";
 
 export const FLOWER_PALETTES = {
     "botanical-rose": [
@@ -34,7 +35,8 @@ export const FLOWER_PALETTES = {
     "minimal-rose": ["#cf3b5c", "#ee5b72", "#b72c50", "#fb8290"],
     "minimal-tulip": ["#ff7d76", "#e94d61", "#c92f51", "#9f2748", "#f5b949"],
     "minimal-daisy": ["#fff3cf", "#e7a52e", "#f6ca50"],
-} as const satisfies Record<FlowerId, readonly string[]>
+    ...GENERATED_FLOWER_PALETTES,
+} as const satisfies Record<FlowerId, readonly string[]>;
 
 export const FLOWER_SLOTS = {
     "botanical-rose": [
@@ -70,12 +72,13 @@ export const FLOWER_SLOTS = {
     "minimal-rose": ["Outer petals", "Middle petals", "Inner petals", "Highlight"],
     "minimal-tulip": ["Petals · light", "Petals · mid", "Petals · shade", "Centre", "Stamens"],
     "minimal-daisy": ["Petals", "Centre", "Highlight"],
-} as const satisfies Record<FlowerId, readonly string[]>
+    ...GENERATED_FLOWER_SLOTS,
+} as const satisfies Record<FlowerId, readonly string[]>;
 
 export function resolveColors(id: FlowerId, colors?: readonly string[]) {
-    return FLOWER_PALETTES[id].map((base, i) => colors?.[i]?.trim() || base)
+    return FLOWER_PALETTES[id].map((base, i) => colors?.[i]?.trim() || base);
 }
 
 export function newPalette(id: FlowerId) {
-    return [...FLOWER_PALETTES[id]]
+    return [...FLOWER_PALETTES[id]];
 }

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="512"
+     height="512"
+     viewBox="0 0 512 512"
+     data-asset-version="1"
+     data-style="retro"
+     data-flower="daisy"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">Retro daisy</title>
+  <desc id="desc">A directly overhead daisy in a bold vintage screen-print style with chunky shapes and a limited retro palette, with no stem, leaves, gradient, or margin.</desc>
+
+  <defs>
+    <path id="petal" d="M 0 78 C -21.24 68 -57.82 -60.58 -59 -125.82 C -60.18 -186.4 -28.32 -233 0 -233 C 28.32 -233 60.18 -186.4 59 -125.82 C 57.82 -60.58 21.24 68 0 78 Z"/>
+  </defs>
+
+  <g id="flower-art" transform="matrix(1.07563 0 0 1.07563 -19.361345 -19.361345)">
+    <g>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#f7e8bf" stroke="#57333f" stroke-width="10" stroke-linejoin="round" transform="rotate(0 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#f1dca5" stroke="#57333f" stroke-width="10" stroke-linejoin="round" transform="rotate(45 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#f7e8bf" stroke="#57333f" stroke-width="10" stroke-linejoin="round" transform="rotate(90 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#f1dca5" stroke="#57333f" stroke-width="10" stroke-linejoin="round" transform="rotate(135 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#f7e8bf" stroke="#57333f" stroke-width="10" stroke-linejoin="round" transform="rotate(180 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#f1dca5" stroke="#57333f" stroke-width="10" stroke-linejoin="round" transform="rotate(225 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#f7e8bf" stroke="#57333f" stroke-width="10" stroke-linejoin="round" transform="rotate(270 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#f1dca5" stroke="#57333f" stroke-width="10" stroke-linejoin="round" transform="rotate(315 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+    </g>
+    <circle cx="256" cy="256" r="91" fill="#dfa62e" stroke="#57333f" stroke-width="10"/>
+    <circle cx="238" cy="237" r="55" fill="#efc85a"/>
+    <circle cx="256" cy="191" r="6" fill="#57333f"/>
+    <circle cx="301.962" cy="210.038" r="6" fill="#57333f"/>
+    <circle cx="321" cy="256" r="6" fill="#57333f"/>
+    <circle cx="301.962" cy="301.962" r="6" fill="#57333f"/>
+    <circle cx="256" cy="321" r="6" fill="#57333f"/>
+    <circle cx="210.038" cy="301.962" r="6" fill="#57333f"/>
+    <circle cx="191" cy="256" r="6" fill="#57333f"/>
+    <circle cx="210.038" cy="210.038" r="6" fill="#57333f"/>
+  </g>
+</svg>

@@ -1,75 +1,70 @@
-import BotanicalDaisy from "../assets/botanical/Daisy"
-import BotanicalRose from "../assets/botanical/Rose"
-import BotanicalTulip from "../assets/botanical/Tulip"
-import MinimalDaisy from "../assets/minimal/Daisy"
-import MinimalRose from "../assets/minimal/Rose"
-import MinimalTulip from "../assets/minimal/Tulip"
-import { FLOWER_PALETTES, FLOWER_SLOTS } from "./palettes"
-import { FLOWER_IDS, isFlowerId, type FlowerAsset, type FlowerId } from "./types"
+import * as Botanical from "../assets/botanical";
+import * as LineArt from "../assets/line-art";
+import * as Minimal from "../assets/minimal";
+import * as Origami from "../assets/origami";
+import * as Retro from "../assets/retro";
+import { FLOWER_PALETTES, FLOWER_SLOTS } from "./palettes";
+import {
+    FLOWER_IDS,
+    FLOWER_SPECIES,
+    FLOWER_SPECIES_NAMES,
+    FLOWER_STYLES,
+    isFlowerId,
+    type FlowerAsset,
+    type FlowerId,
+    type FlowerSpecies,
+    type FlowerStyle,
+} from "./types";
 
-export const FLOWERS: FlowerAsset[] = [
-    {
-        id: "botanical-rose",
-        style: "botanical",
-        species: "rose",
-        name: "Rose",
-        slots: [...FLOWER_SLOTS["botanical-rose"]],
-        colors: [...FLOWER_PALETTES["botanical-rose"]],
-        art: BotanicalRose,
-    },
-    {
-        id: "botanical-tulip",
-        style: "botanical",
-        species: "tulip",
-        name: "Tulip",
-        slots: [...FLOWER_SLOTS["botanical-tulip"]],
-        colors: [...FLOWER_PALETTES["botanical-tulip"]],
-        art: BotanicalTulip,
-    },
-    {
-        id: "botanical-daisy",
-        style: "botanical",
-        species: "daisy",
-        name: "Daisy",
-        slots: [...FLOWER_SLOTS["botanical-daisy"]],
-        colors: [...FLOWER_PALETTES["botanical-daisy"]],
-        art: BotanicalDaisy,
-    },
-    {
-        id: "minimal-rose",
-        style: "minimal",
-        species: "rose",
-        name: "Rose",
-        slots: [...FLOWER_SLOTS["minimal-rose"]],
-        colors: [...FLOWER_PALETTES["minimal-rose"]],
-        art: MinimalRose,
-    },
-    {
-        id: "minimal-tulip",
-        style: "minimal",
-        species: "tulip",
-        name: "Tulip",
-        slots: [...FLOWER_SLOTS["minimal-tulip"]],
-        colors: [...FLOWER_PALETTES["minimal-tulip"]],
-        art: MinimalTulip,
-    },
-    {
-        id: "minimal-daisy",
-        style: "minimal",
-        species: "daisy",
-        name: "Daisy",
-        slots: [...FLOWER_SLOTS["minimal-daisy"]],
-        colors: [...FLOWER_PALETTES["minimal-daisy"]],
-        art: MinimalDaisy,
-    },
-]
+type FlowerComponents = typeof Botanical;
+
+const ART_BY_STYLE = {
+    botanical: Botanical,
+    minimal: Minimal,
+    "line-art": LineArt,
+    origami: Origami,
+    retro: Retro,
+} satisfies Record<FlowerStyle, FlowerComponents>;
+
+const COMPONENT_BY_SPECIES = {
+    rose: "Rose",
+    tulip: "Tulip",
+    daisy: "Daisy",
+    sunflower: "Sunflower",
+    lotus: "Lotus",
+    orchid: "Orchid",
+    hibiscus: "Hibiscus",
+    poppy: "Poppy",
+    peony: "Peony",
+    chrysanthemum: "Chrysanthemum",
+    dahlia: "Dahlia",
+    camellia: "Camellia",
+    anemone: "Anemone",
+    narcissus: "Narcissus",
+    "forget-me-not": "ForgetMeNot",
+} as const satisfies Record<FlowerSpecies, keyof FlowerComponents>;
+
+export const FLOWERS: FlowerAsset[] = FLOWER_STYLES.flatMap((style) =>
+    FLOWER_SPECIES.map((species) => {
+        const id: FlowerId = `${style}-${species}`;
+        return {
+            id,
+            style,
+            species,
+            name: FLOWER_SPECIES_NAMES[species],
+            slots: [...FLOWER_SLOTS[id]],
+            colors: [...FLOWER_PALETTES[id]],
+            art: ART_BY_STYLE[style][COMPONENT_BY_SPECIES[species]],
+        };
+    }),
+);
 
 export const FLOWER_MAP = Object.fromEntries(
     FLOWERS.map((flower) => [flower.id, flower]),
-) as Record<FlowerId, FlowerAsset>
+) as Record<FlowerId, FlowerAsset>;
 
-export { FLOWER_IDS, isFlowerId }
+export { FLOWER_IDS, isFlowerId };
 
 export function getFlower(id: FlowerId) {
-    return FLOWER_MAP[id]
+    return FLOWER_MAP[id];
 }

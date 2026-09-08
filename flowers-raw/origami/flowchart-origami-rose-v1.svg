@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="512"
+     height="512"
+     viewBox="0 0 512 512"
+     data-asset-version="1"
+     data-style="origami"
+     data-flower="rose"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">Origami rose</title>
+  <desc id="desc">A directly overhead rose constructed from crisp, flat origami facets, with no stem, leaves, gradient, or surrounding margin.</desc>
+
+  <g id="flower-art" transform="matrix(1.108225 0 0 1.108225 -27.705628 -27.705628)">
+    <g transform="translate(256 256)">
+      <g transform="rotate(0) scale(1)">
+        <polygon points="0,72 -58,-122.43 0,-231" fill="#fb8290"/>
+        <polygon points="0,72 0,-231 58,-122.43" fill="#e34a64"/>
+        <polygon points="-58,-122.43 0,-97.02 58,-122.43" fill="#c93455" opacity="0.88"/>
+      </g>
+      <g transform="rotate(30) scale(1)">
+        <polygon points="0,72 -58,-122.43 0,-231" fill="#c93455"/>
+        <polygon points="0,72 0,-231 58,-122.43" fill="#8d2442"/>
+        <polygon points="-58,-122.43 0,-97.02 58,-122.43" fill="#fb8290" opacity="0.88"/>
+      </g>
+      <g transform="rotate(60) scale(1)">
+        <polygon points="0,72 -58,-122.43 0,-231" fill="#fb8290"/>
+        <polygon points="0,72 0,-231 58,-122.43" fill="#e34a64"/>
+        <polygon points="-58,-122.43 0,-97.02 58,-122.43" fill="#c93455" opacity="0.88"/>
+      </g>
+      <g transform="rotate(90) scale(1)">
+        <polygon points="0,72 -58,-122.43 0,-231" fill="#c93455"/>
+        <polygon points="0,72 0,-231 58,-122.43" fill="#8d2442"/>
+        <polygon points="-58,-122.43 0,-97.02 58,-122.43" fill="#fb8290" opacity="0.88"/>
+      </g>
+      <g transform="rotate(120) scale(1)">
+        <polygon points="0,72 -58,-122.43 0,-231" fill="#fb8290"/>
+        <polygon points="0,72 0,-231 58,-122.43" fill="#e34a64"/>
+        <polygon points="-58,-122.43 0,-97.02 58,-122.43" fill="#c93455" opacity="0.88"/>
+      </g>
+      <g transform="rotate(150) scale(1)">
+        <polygon points="0,72 -58,-122.43 0,-231" fill="#c93455"/>
+        <polygon points="0,72 0,-231 58,-122.43" fill="#8d2442"/>
+        <polygon points="-58,-122.43 0,-97.02 58,-122.43" fill="#fb8290" opacity="0.88"/>
+      </g>
+      <g transform="rotate(180) scale(1)">
+        <polygon points="0,72 -58,-122.43 0,-231" fill="#fb8290"/>
+        <polygon points="0,72 0,-231 58,-122.43" fill="#e34a64"/>
+        <polygon points="-58,-122.43 0,-97.02 58,-122.43" fill="#c93455" opacity="0.88"/>
+      </g>
+      <g transform="rotate(210) scale(1)">
+        <polygon points="0,72 -58,-122.43 0,-231" fill="#c93455"/>
+        <polygon points="0,72 0,-231 58,-122.43" fill="#8d2442"/>
+        <polygon points="-58,-122.43 0,-97.02 58,-122.43" fill="#fb8290" opacity="0.88"/>
+      </g>
+      <g transform="rotate(240) scale(1)">
+        <polygon points="0,72 -58,-122.43 0,-231" fill="#fb8290"/>
+        <polygon points="0,72 0,-231 58,-122.43" fill="#e34a64"/>
+        <polygon points="-58,-122.43 0,-97.02 58,-122.43" fill="#c93455" opacity="0.88"/>
+      </g>
+      <g transform="rotate(270) scale(1)">
+        <polygon points="0,72 -58,-122.43 0,-231" fill="#c93455"/>
+        <polygon points="0,72 0,-231 58,-122.43" fill="#8d2442"/>
+        <polygon points="-58,-122.43 0,-97.02 58,-122.43" fill="#fb8290" opacity="0.88"/>
+      </g>
+      <g transform="rotate(300) scale(1)">
+        <polygon points="0,72 -58,-122.43 0,-231" fill="#fb8290"/>
+        <polygon points="0,72 0,-231 58,-122.43" fill="#e34a64"/>
+        <polygon points="-58,-122.43 0,-97.02 58,-122.43" fill="#c93455" opacity="0.88"/>
+      </g>
+      <g transform="rotate(330) scale(1)">
+        <polygon points="0,72 -58,-122.43 0,-231" fill="#c93455"/>
+        <polygon points="0,72 0,-231 58,-122.43" fill="#8d2442"/>
+        <polygon points="-58,-122.43 0,-97.02 58,-122.43" fill="#fb8290" opacity="0.88"/>
+      </g>
+    </g>
+    <g transform="translate(256 256)">
+      <g transform="rotate(18) scale(1)">
+        <polygon points="0,58 -52,-86.92 0,-164" fill="#e34a64"/>
+        <polygon points="0,58 0,-164 52,-86.92" fill="#8d2442"/>
+        <polygon points="-52,-86.92 0,-68.88 52,-86.92" fill="#fb8290" opacity="0.88"/>
+      </g>
+      <g transform="rotate(54) scale(1)">
+        <polygon points="0,58 -52,-86.92 0,-164" fill="#fb8290"/>
+        <polygon points="0,58 0,-164 52,-86.92" fill="#e34a64"/>
+        <polygon points="-52,-86.92 0,-68.88 52,-86.92" fill="#8d2442" opacity="0.88"/>
+      </g>
+      <g transform="rotate(90) scale(1)">
+        <polygon points="0,58 -52,-86.92 0,-164" fill="#8d2442"/>
+        <polygon points="0,58 0,-164 52,-86.92" fill="#fb8290"/>
+        <polygon points="-52,-86.92 0,-68.88 52,-86.92" fill="#e34a64" opacity="0.88"/>
+      </g>
+      <g transform="rotate(126) scale(1)">
+        <polygon points="0,58 -52,-86.92 0,-164" fill="#e34a64"/>
+        <polygon points="0,58 0,-164 52,-86.92" fill="#8d2442"/>
+        <polygon points="-52,-86.92 0,-68.88 52,-86.92" fill="#fb8290" opacity="0.88"/>
+      </g>
+      <g transform="rotate(162) scale(1)">
+        <polygon points="0,58 -52,-86.92 0,-164" fill="#fb8290"/>
+        <polygon points="0,58 0,-164 52,-86.92" fill="#e34a64"/>
+        <polygon points="-52,-86.92 0,-68.88 52,-86.92" fill="#8d2442" opacity="0.88"/>
+      </g>
+      <g transform="rotate(198) scale(1)">
+        <polygon points="0,58 -52,-86.92 0,-164" fill="#8d2442"/>
+        <polygon points="0,58 0,-164 52,-86.92" fill="#fb8290"/>
+        <polygon points="-52,-86.92 0,-68.88 52,-86.92" fill="#e34a64" opacity="0.88"/>
+      </g>
+      <g transform="rotate(234) scale(1)">
+        <polygon points="0,58 -52,-86.92 0,-164" fill="#e34a64"/>
+        <polygon points="0,58 0,-164 52,-86.92" fill="#8d2442"/>
+        <polygon points="-52,-86.92 0,-68.88 52,-86.92" fill="#fb8290" opacity="0.88"/>
+      </g>
+      <g transform="rotate(270) scale(1)">
+        <polygon points="0,58 -52,-86.92 0,-164" fill="#fb8290"/>
+        <polygon points="0,58 0,-164 52,-86.92" fill="#e34a64"/>
+        <polygon points="-52,-86.92 0,-68.88 52,-86.92" fill="#8d2442" opacity="0.88"/>
+      </g>
+      <g transform="rotate(306) scale(1)">
+        <polygon points="0,58 -52,-86.92 0,-164" fill="#8d2442"/>
+        <polygon points="0,58 0,-164 52,-86.92" fill="#fb8290"/>
+        <polygon points="-52,-86.92 0,-68.88 52,-86.92" fill="#e34a64" opacity="0.88"/>
+      </g>
+      <g transform="rotate(342) scale(1)">
+        <polygon points="0,58 -52,-86.92 0,-164" fill="#e34a64"/>
+        <polygon points="0,58 0,-164 52,-86.92" fill="#8d2442"/>
+        <polygon points="-52,-86.92 0,-68.88 52,-86.92" fill="#fb8290" opacity="0.88"/>
+      </g>
+    </g>
+    <g transform="translate(256 256)">
+      <g transform="rotate(7.5) scale(1)">
+        <polygon points="0,43 -41,-54.59 0,-103" fill="#fb8290"/>
+        <polygon points="0,43 0,-103 41,-54.59" fill="#c93455"/>
+        <polygon points="-41,-54.59 0,-43.26 41,-54.59" fill="#641a34" opacity="0.88"/>
+      </g>
+      <g transform="rotate(52.5) scale(1)">
+        <polygon points="0,43 -41,-54.59 0,-103" fill="#641a34"/>
+        <polygon points="0,43 0,-103 41,-54.59" fill="#fb8290"/>
+        <polygon points="-41,-54.59 0,-43.26 41,-54.59" fill="#c93455" opacity="0.88"/>
+      </g>
+      <g transform="rotate(97.5) scale(1)">
+        <polygon points="0,43 -41,-54.59 0,-103" fill="#c93455"/>
+        <polygon points="0,43 0,-103 41,-54.59" fill="#641a34"/>
+        <polygon points="-41,-54.59 0,-43.26 41,-54.59" fill="#fb8290" opacity="0.88"/>
+      </g>
+      <g transform="rotate(142.5) scale(1)">
+        <polygon points="0,43 -41,-54.59 0,-103" fill="#fb8290"/>
+        <polygon points="0,43 0,-103 41,-54.59" fill="#c93455"/>
+        <polygon points="-41,-54.59 0,-43.26 41,-54.59" fill="#641a34" opacity="0.88"/>
+      </g>
+      <g transform="rotate(187.5) scale(1)">
+        <polygon points="0,43 -41,-54.59 0,-103" fill="#641a34"/>
+        <polygon points="0,43 0,-103 41,-54.59" fill="#fb8290"/>
+        <polygon points="-41,-54.59 0,-43.26 41,-54.59" fill="#c93455" opacity="0.88"/>
+      </g>
+      <g transform="rotate(232.5) scale(1)">
+        <polygon points="0,43 -41,-54.59 0,-103" fill="#c93455"/>
+        <polygon points="0,43 0,-103 41,-54.59" fill="#641a34"/>
+        <polygon points="-41,-54.59 0,-43.26 41,-54.59" fill="#fb8290" opacity="0.88"/>
+      </g>
+      <g transform="rotate(277.5) scale(1)">
+        <polygon points="0,43 -41,-54.59 0,-103" fill="#fb8290"/>
+        <polygon points="0,43 0,-103 41,-54.59" fill="#c93455"/>
+        <polygon points="-41,-54.59 0,-43.26 41,-54.59" fill="#641a34" opacity="0.88"/>
+      </g>
+      <g transform="rotate(322.5) scale(1)">
+        <polygon points="0,43 -41,-54.59 0,-103" fill="#641a34"/>
+        <polygon points="0,43 0,-103 41,-54.59" fill="#fb8290"/>
+        <polygon points="-41,-54.59 0,-43.26 41,-54.59" fill="#c93455" opacity="0.88"/>
+      </g>
+    </g>
+    <g>
+      <polygon points="256,256 256,214 285.698,226.302" fill="#641a34"/>
+      <polygon points="256,256 285.698,226.302 298,256" fill="#8d2442"/>
+      <polygon points="256,256 298,256 285.698,285.698" fill="#fb8290"/>
+      <polygon points="256,256 285.698,285.698 256,298" fill="#641a34"/>
+      <polygon points="256,256 256,298 226.302,285.698" fill="#8d2442"/>
+      <polygon points="256,256 226.302,285.698 214,256" fill="#fb8290"/>
+      <polygon points="256,256 214,256 226.302,226.302" fill="#641a34"/>
+      <polygon points="256,256 226.302,226.302 256,214" fill="#8d2442"/>
+    </g>
+  </g>
+</svg>

@@ -9,6 +9,8 @@
     "lint": "eslint .",
     "typecheck": "tsc -b --pretty false",
     "test": "node --test src/editor/*.test.ts",
+    "validate:flowers": "node scripts/validate-flowers.mjs",
+    "test:flowers": "node scripts/test-flower-runtime.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

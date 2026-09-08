@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="512"
+     height="512"
+     viewBox="0 0 512 512"
+     data-asset-version="1"
+     data-style="retro"
+     data-flower="camellia"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">Retro camellia</title>
+  <desc id="desc">A directly overhead camellia in a bold vintage screen-print style with chunky shapes and a limited retro palette, with no stem, leaves, gradient, or margin.</desc>
+
+  <defs>
+    <path id="petal" d="M 0 74 C -36.36 64 -98.98 -59.28 -101 -123.12 C -103.02 -182.4 -48.48 -228 0 -228 C 48.48 -228 103.02 -182.4 101 -123.12 C 98.98 -59.28 36.36 64 0 74 Z"/>
+  </defs>
+
+  <g id="flower-art" transform="matrix(1.098712 0 0 1.098712 -25.270386 -25.270386)">
+    <g>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#f7e8bf" stroke="#57333f" stroke-width="10" stroke-linejoin="round" transform="rotate(0 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#e69a8d" stroke="#57333f" stroke-width="10" stroke-linejoin="round" transform="rotate(45 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#d95659" stroke="#57333f" stroke-width="10" stroke-linejoin="round" transform="rotate(90 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#f7e8bf" stroke="#57333f" stroke-width="10" stroke-linejoin="round" transform="rotate(135 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#e69a8d" stroke="#57333f" stroke-width="10" stroke-linejoin="round" transform="rotate(180 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#d95659" stroke="#57333f" stroke-width="10" stroke-linejoin="round" transform="rotate(225 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#f7e8bf" stroke="#57333f" stroke-width="10" stroke-linejoin="round" transform="rotate(270 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#petal" xlink:href="#petal" x="256" y="256" fill="#e69a8d" stroke="#57333f" stroke-width="10" stroke-linejoin="round" transform="rotate(315 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+    </g>
+    <path d="M 301.327 143.811 C 309.735 147.115 307.965 185.197 316.766 194.164 C 325.567 203.132 362.385 201.075 365.725 209.424 C 369.066 217.774 340.674 242.616 341.21 255.256 C 341.746 267.897 373.191 293.853 369.647 301.916 C 366.104 309.98 324.332 305.258 315.284 314.258 C 306.236 323.259 311.443 363.921 303.444 367.771 C 295.445 371.621 269.334 342.618 256.754 342.429 C 244.175 342.239 219.706 369.852 211.401 366.387 C 203.095 362.923 205.268 325.632 195.981 317.076 C 186.694 308.519 146.588 312.025 143.445 303.777 C 140.303 295.529 173.041 269.491 172.986 256.724 C 172.931 243.958 140.09 218.709 143.042 210.362 C 145.994 202.015 185.504 204.383 194.587 195.649 C 203.67 186.916 201.212 149.967 209.503 146.459 C 217.793 142.952 242.7 170.347 255.249 169.985 C 267.799 169.623 292.92 140.506 301.327 143.811 Z" fill="#b94168" stroke="#57333f" stroke-width="10" stroke-linejoin="round"/>
+    <circle cx="256" cy="256" r="50" fill="#dfa62e" stroke="#57333f" stroke-width="10"/>
+    <circle cx="238" cy="237" r="25" fill="#efc85a"/>
+    <circle cx="256" cy="217" r="6" fill="#f7e8bf"/>
+    <circle cx="278.924" cy="224.448" r="6" fill="#f7e8bf"/>
+    <circle cx="293.091" cy="243.948" r="6" fill="#f7e8bf"/>
+    <circle cx="293.091" cy="268.052" r="6" fill="#f7e8bf"/>
+    <circle cx="278.924" cy="287.552" r="6" fill="#f7e8bf"/>
+    <circle cx="256" cy="295" r="6" fill="#f7e8bf"/>
+    <circle cx="233.076" cy="287.552" r="6" fill="#f7e8bf"/>
+    <circle cx="218.909" cy="268.052" r="6" fill="#f7e8bf"/>
+    <circle cx="218.909" cy="243.948" r="6" fill="#f7e8bf"/>
+    <circle cx="233.076" cy="224.448" r="6" fill="#f7e8bf"/>
+  </g>
+</svg>

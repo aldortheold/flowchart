@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="512"
+     height="512"
+     viewBox="0 0 512 512"
+     data-asset-version="1"
+     data-style="retro"
+     data-flower="orchid"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">Retro orchid</title>
+  <desc id="desc">A directly overhead orchid in a bold vintage screen-print style with chunky shapes and a limited retro palette, with no stem, leaves, gradient, or margin.</desc>
+
+  <defs>
+    <path id="sepal" d="M 0 48 C -36 32 -75 -69.44 -66 -128.03 C -54 -169.26 -15 -208.32 0 -217 C 15 -208.32 54 -169.26 66 -128.03 C 75 -69.44 36 32 0 48 Z"/>
+    <path id="broad-petal" d="M 0 44 C -39.96 34 -108.78 -59.54 -111 -123.66 C -113.22 -183.2 -53.28 -229 0 -229 C 53.28 -229 113.22 -183.2 111 -123.66 C 108.78 -59.54 39.96 34 0 44 Z"/>
+    <path id="lip" d="M 0 41 C -31.2 29 -54.08 -25.2 -43.68 -63 C -81.12 -79.8 -101.92 -121.8 -70.72 -147 C -54.08 -193.2 -18.72 -210 0 -176.4 C 18.72 -210 54.08 -193.2 70.72 -147 C 101.92 -121.8 81.12 -79.8 43.68 -63 C 54.08 -25.2 31.2 29 0 41 Z"/>
+  </defs>
+
+  <g id="flower-art" transform="matrix(1.128238 0 0 1.214574 -32.828789 -41.295635)">
+    <g>
+      <use href="#sepal" xlink:href="#sepal" x="256" y="256" fill="#9a718d" stroke="#57333f" stroke-width="10" stroke-linejoin="round" transform="rotate(0 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#sepal" xlink:href="#sepal" x="256" y="256" fill="#754462" stroke="#57333f" stroke-width="10" stroke-linejoin="round" transform="rotate(120 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+      <use href="#sepal" xlink:href="#sepal" x="256" y="256" fill="#b48ba4" stroke="#57333f" stroke-width="10" stroke-linejoin="round" transform="rotate(240 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+    </g>
+    <g stroke="#57333f" stroke-width="11" stroke-linejoin="round">
+      <use href="#broad-petal" xlink:href="#broad-petal" x="256" y="256" fill="#f7e8bf" transform="rotate(70 256 256)"/>
+      <use href="#broad-petal" xlink:href="#broad-petal" x="256" y="256" fill="#9a718d" transform="rotate(290 256 256)"/>
+      <use href="#lip" xlink:href="#lip" x="256" y="256" fill="#b94168" transform="rotate(180 256 256)"/>
+    </g>
+    <ellipse cx="256" cy="270" rx="37" ry="29" fill="#efc85a" stroke="#57333f" stroke-width="9"/>
+    <circle cx="244" cy="260" r="10" fill="#f7e8bf"/>
+  </g>
+</svg>

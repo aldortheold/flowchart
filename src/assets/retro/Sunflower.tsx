@@ -1,0 +1,70 @@
+import { useId } from "react";
+import { scaleFlower } from "../scaleFlower";
+import { resolveColors } from "../../flowers/palettes";
+import type { FlowerProps } from "../../flowers/types";
+
+const NEW_VIEWBOX = scaleFlower([
+    13.000199335927,
+    13.000199335927,
+    499.000172757803,
+    499.000172757803,
+]);
+
+function Sunflower({ colors }: FlowerProps) {
+    const petalId = useId();
+    const c = resolveColors("retro-sunflower", colors);
+
+    return (
+        <>
+            <defs>
+                <path id={petalId} d="M 0 84 C -18.72 68 -39 -76.48 -34.32 -141.01 C -28.08 -186.42 -7.8 -229.44 0 -239 C 7.8 -229.44 28.08 -186.42 34.32 -141.01 C 39 -76.48 18.72 68 0 84 Z"/>
+              </defs>
+            <g transform={NEW_VIEWBOX}>
+                <g>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[0]} stroke={c[1]} strokeWidth="8" strokeLinejoin="round" transform="rotate(0 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[2]} stroke={c[1]} strokeWidth="8" strokeLinejoin="round" transform="rotate(22.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[3]} stroke={c[1]} strokeWidth="8" strokeLinejoin="round" transform="rotate(45 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[0]} stroke={c[1]} strokeWidth="8" strokeLinejoin="round" transform="rotate(67.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[2]} stroke={c[1]} strokeWidth="8" strokeLinejoin="round" transform="rotate(90 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[3]} stroke={c[1]} strokeWidth="8" strokeLinejoin="round" transform="rotate(112.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[0]} stroke={c[1]} strokeWidth="8" strokeLinejoin="round" transform="rotate(135 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[2]} stroke={c[1]} strokeWidth="8" strokeLinejoin="round" transform="rotate(157.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[3]} stroke={c[1]} strokeWidth="8" strokeLinejoin="round" transform="rotate(180 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[0]} stroke={c[1]} strokeWidth="8" strokeLinejoin="round" transform="rotate(202.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[2]} stroke={c[1]} strokeWidth="8" strokeLinejoin="round" transform="rotate(225 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[3]} stroke={c[1]} strokeWidth="8" strokeLinejoin="round" transform="rotate(247.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[0]} stroke={c[1]} strokeWidth="8" strokeLinejoin="round" transform="rotate(270 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[2]} stroke={c[1]} strokeWidth="8" strokeLinejoin="round" transform="rotate(292.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[3]} stroke={c[1]} strokeWidth="8" strokeLinejoin="round" transform="rotate(315 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                      <use href={`#${petalId}`} x="256" y="256" fill={c[0]} stroke={c[1]} strokeWidth="8" strokeLinejoin="round" transform="rotate(337.5 256 256) translate(256 256) scale(1) translate(-256 -256)"/>
+                    </g>
+                    <circle cx="256" cy="256" r="115" fill={c[1]} stroke={c[1]} strokeWidth="10"/>
+                    <circle cx="238" cy="237" r="70" fill={c[2]}/>
+                    <circle cx="256" cy="174" r="6" fill={c[4]}/>
+                    <circle cx="291.578" cy="182.121" r="6" fill={c[4]}/>
+                    <circle cx="320.11" cy="204.874" r="6" fill={c[4]}/>
+                    <circle cx="335.944" cy="237.753" r="6" fill={c[4]}/>
+                    <circle cx="335.944" cy="274.247" r="6" fill={c[4]}/>
+                    <circle cx="320.11" cy="307.126" r="6" fill={c[4]}/>
+                    <circle cx="291.578" cy="329.879" r="6" fill={c[4]}/>
+                    <circle cx="256" cy="338" r="6" fill={c[4]}/>
+                    <circle cx="220.422" cy="329.879" r="6" fill={c[4]}/>
+                    <circle cx="191.89" cy="307.126" r="6" fill={c[4]}/>
+                    <circle cx="176.056" cy="274.247" r="6" fill={c[4]}/>
+                    <circle cx="176.056" cy="237.753" r="6" fill={c[4]}/>
+                    <circle cx="191.89" cy="204.874" r="6" fill={c[4]}/>
+                    <circle cx="220.422" cy="182.121" r="6" fill={c[4]}/>
+                    <circle cx="265.564" cy="211.005" r="7" fill={c[3]}/>
+                    <circle cx="294.579" cy="230.947" r="7" fill={c[3]}/>
+                    <circle cx="300.995" cy="265.564" r="7" fill={c[3]}/>
+                    <circle cx="281.053" cy="294.579" r="7" fill={c[3]}/>
+                    <circle cx="246.436" cy="300.995" r="7" fill={c[3]}/>
+                    <circle cx="217.421" cy="281.053" r="7" fill={c[3]}/>
+                    <circle cx="211.005" cy="246.436" r="7" fill={c[3]}/>
+                    <circle cx="230.947" cy="217.421" r="7" fill={c[3]}/>
+            </g>
+        </>
+    );
+}
+
+export default Sunflower;
