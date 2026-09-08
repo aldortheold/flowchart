@@ -1,4 +1,4 @@
-// Generated from the supplied SVG artwork by scripts/generate-flowers.mjs.
+// Derived from the supplied SVG artwork during flower asset integration.
 // The order of each palette matches the first appearance of each color in its source SVG.
 export const GENERATED_FLOWER_PALETTES = {
     "botanical-sunflower": [
